@@ -5,7 +5,7 @@ import { Pokemon } from './pokemon'
   selector: 'pokemon-detail',
   template: `
     <div *ngIf="pokemon">
-      <h2>{{pokemon.name}} details!</h2>
+      <h2>{{pokemon.jname}} details!</h2>
       <div><label>id: </label>{{pokemon.id}}</div>
     </div>
   `

@@ -6,14 +6,14 @@ import { PokemonService } from './pokemon.service'
 @Component({
   selector: 'pokemon-master',
   template: `
+    <pokemon-detail *ngIf="selectedPokemon" [pokemon]=selectedPokemon></pokemon-detail>
     <ul class="pokemon">
       <li *ngFor="let p of pokemon"
       [class.selected]="selectedPokemon === p"  
       (click)="onSelect(p)">
         <span class="badge">{{p.id}}</span> {{p.name}}
       </li>
-    </ul>
-    <pokemon-detail [pokemon]=p> </pokemon-detail>`,
+    </ul>`,
   styles: [`
     `]
 
@@ -27,12 +27,12 @@ export class PokemonMasterComponent {
   constructor(private pokemonService: PokemonService) { }
 
   getPokemon(): void {
-    this.pokemonService.getPokemonSlowly().then(pokemon => this.pokemon = pokemon);
-  }
+    this.pokemonService.getPokemon().then(pokemon => this.pokemon = pokemon);
+  };
   
   ngOnInit(): void {
     this.getPokemon();
-  }
+  };
   
   onSelect(pokemon: Pokemon): void {
     this.selectedPokemon = pokemon;

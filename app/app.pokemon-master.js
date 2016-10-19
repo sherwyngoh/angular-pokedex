@@ -16,11 +16,13 @@ var PokemonMasterComponent = (function () {
     }
     PokemonMasterComponent.prototype.getPokemon = function () {
         var _this = this;
-        this.pokemonService.getPokemonSlowly().then(function (pokemon) { return _this.pokemon = pokemon; });
+        this.pokemonService.getPokemon().then(function (pokemon) { return _this.pokemon = pokemon; });
     };
+    ;
     PokemonMasterComponent.prototype.ngOnInit = function () {
         this.getPokemon();
     };
+    ;
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
         this.selectedPokemon = pokemon;
     };
@@ -28,7 +30,7 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-master',
-            template: "\n    <ul class=\"pokemon\">\n      <li *ngFor=\"let p of pokemon\"\n      [class.selected]=\"selectedPokemon === p\"  \n      (click)=\"onSelect(p)\">\n        <span class=\"badge\">{{p.id}}</span> {{p.name}}\n      </li>\n    </ul>\n    <pokemon-detail [pokemon]=p> </pokemon-detail>",
+            template: "\n    <pokemon-detail *ngIf=\"selectedPokemon\" [pokemon]=selectedPokemon></pokemon-detail>\n    <ul class=\"pokemon\">\n      <li *ngFor=\"let p of pokemon\"\n      [class.selected]=\"selectedPokemon === p\"  \n      (click)=\"onSelect(p)\">\n        <span class=\"badge\">{{p.id}}</span> {{p.name}}\n      </li>\n    </ul>",
             styles: ["\n    "]
         }), 
         __metadata('design:paramtypes', [pokemon_service_1.PokemonService])
