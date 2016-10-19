@@ -1,7 +1,8 @@
-
-<div *ngFor="let type of pokemonTypes" (click)="onSelect(type)">
-    {{type.ename}}
+<div>
+  <div *ngFor="let type of pokemonTypes" (click)="onSelect(type)">
+      {{type.ename}}
+  </div>
+  <div *ngIf="selectedPokemonType">
+    <h1>{{selectedPokemonType.ename}}</h1>
+  </div> 
 </div>
-<div *ngIf="selectedPokemonType">
-  <h1>{{selectedPokemonType.ename}}</h1>
-</div> 

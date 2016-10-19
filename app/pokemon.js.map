@@ -1,1 +1,1 @@
-{"version":3,"file":"pokemon.js","sourceRoot":"","sources":["pokemon.ts"],"names":[],"mappings":";AAAA;IAAA;IAwBA,CAAC;IAAD,cAAC;AAAD,CAAC,AAxBD,IAwBC;AAxBY,eAAO,UAwBnB,CAAA;AAED;IAAA;IAGA,CAAC;IAAD,mBAAC;AAAD,CAAC,AAHD,IAGC"}
+{"version":3,"file":"pokemon.js","sourceRoot":"","sources":["pokemon.ts"],"names":[],"mappings":";AAAA;IAAA;IA4BA,CAAC;IAHC,0BAAQ,GAAR;QACE,MAAM,CAAC,IAAI,CAAC,KAAK,CAAA;IACnB,CAAC;IACH,cAAC;AAAD,CAAC,AA5BD,IA4BC;AA5BY,eAAO,UA4BnB,CAAA;AAED;IAAA;IAGA,CAAC;IAAD,mBAAC;AAAD,CAAC,AAHD,IAGC"}

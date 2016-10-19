@@ -8,7 +8,7 @@ export class Pokemon {
     Speed: number;
   };
   cname?: string;
-  ename?: string;
+  ename: string;
   id?: string;
   jname?: string;
   flatName?: string;
@@ -22,6 +22,10 @@ export class Pokemon {
     pre_evolution?: number[];
   };
   type: string[];
+
+  getImage(): string {
+    return this.ename
+  }
 }
 
 class PokemonModel {

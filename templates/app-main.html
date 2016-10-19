@@ -1,0 +1,8 @@
+<div [class.active]="toggleFilter" id="filterModal">
+  <h1>{{toggleFilter}}</h1>
+  <div *ngIf="toggleFilter">
+    <pokemon-types-master></pokemon-types-master>
+  </div>
+</div> 
+<pokemon-master></pokemon-master>
+<a (click)="toggleFilter = !toggleFilter" [class.active]="toggleFilter" class="pokeball"></a>

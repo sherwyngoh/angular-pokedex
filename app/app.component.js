@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-main',
-            template: "\n  <h1>{{title}}</h1>\n  <pokemon-master></pokemon-master>\n  "
+            templateUrl: 'templates/app-main.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

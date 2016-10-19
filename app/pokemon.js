@@ -2,6 +2,9 @@
 var Pokemon = (function () {
     function Pokemon() {
     }
+    Pokemon.prototype.getImage = function () {
+        return this.ename;
+    };
     return Pokemon;
 }());
 exports.Pokemon = Pokemon;

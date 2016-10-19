@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main',
-  template: `
-  <h1>{{title}}</h1>
-  <pokemon-master></pokemon-master>
-  `
+  templateUrl: 'templates/app-main.html'
 })
 
 export class AppComponent {
   title = "Pokemon";
+  toggleFilter: false;
 }

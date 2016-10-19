@@ -11,7 +11,8 @@ import { PokemonTypesService } from './pokemon-types.service'
 export class PokemonTypesMasterComponent { 
   selectedPokemonType: PokemonType;
   pokemonTypes: PokemonType[];
-  
+  toggleTypes: false;
+
   constructor(private PokemonTypesService: PokemonTypesService) { }
 
   getPokemonTypes(): void {
