@@ -6,14 +6,15 @@ import { PokemonService } from './pokemon.service'
 @Component({
   selector: 'pokemon-master',
   template: `
+    <pokemon-types-master></pokemon-types-master>
     <pokemon-detail *ngIf="selectedPokemon" [pokemon]=selectedPokemon></pokemon-detail>
-    <ul class="pokemon">
-      <li *ngFor="let p of pokemon"
-      [class.selected]="selectedPokemon === p"  
+    <section id="pokemon-list">
+      <div *ngFor="let p of pokemon"
+      [class.selected]="selectedPokemon === p" class="pokemon"  
       (click)="onSelect(p)">
         <span class="badge">{{p.id}}</span> {{p.name}}
-      </li>
-    </ul>`,
+      </div>
+    </section>`,
   styles: [`
     `]
 

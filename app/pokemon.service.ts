@@ -8,9 +8,9 @@ export class PokemonService {
     return Promise.resolve(POKEMON);
   }
   
-  getPokemonSlowly(): Promise<Pokemon[]> {
-    return new Promise<Pokemon[]>(resolve =>
-      setTimeout(resolve, 2000)) // delay 2 seconds
-      .then(() => this.getPokemon());
-  }
+  // getPokemonSlowly(): Promise<Pokemon[]> {
+  //   return new Promise<Pokemon[]>(resolve =>
+  //     setTimeout(resolve, 2000)) // delay 2 seconds
+  //     .then(() => this.getPokemon());
+  // }
 }

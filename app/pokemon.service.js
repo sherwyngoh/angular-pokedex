@@ -16,13 +16,6 @@ var PokemonService = (function () {
     PokemonService.prototype.getPokemon = function () {
         return Promise.resolve(mock_pokemon_1.POKEMON);
     };
-    PokemonService.prototype.getPokemonSlowly = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            return setTimeout(resolve, 2000);
-        }) // delay 2 seconds
-            .then(function () { return _this.getPokemon(); });
-    };
     PokemonService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

@@ -30,7 +30,7 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-master',
-            template: "\n    <pokemon-detail *ngIf=\"selectedPokemon\" [pokemon]=selectedPokemon></pokemon-detail>\n    <ul class=\"pokemon\">\n      <li *ngFor=\"let p of pokemon\"\n      [class.selected]=\"selectedPokemon === p\"  \n      (click)=\"onSelect(p)\">\n        <span class=\"badge\">{{p.id}}</span> {{p.name}}\n      </li>\n    </ul>",
+            template: "\n    <pokemon-types-master></pokemon-types-master>\n    <pokemon-detail *ngIf=\"selectedPokemon\" [pokemon]=selectedPokemon></pokemon-detail>\n    <section id=\"pokemon-list\">\n      <div *ngFor=\"let p of pokemon\"\n      [class.selected]=\"selectedPokemon === p\" class=\"pokemon\"  \n      (click)=\"onSelect(p)\">\n        <span class=\"badge\">{{p.id}}</span> {{p.name}}\n      </div>\n    </section>",
             styles: ["\n    "]
         }), 
         __metadata('design:paramtypes', [pokemon_service_1.PokemonService])

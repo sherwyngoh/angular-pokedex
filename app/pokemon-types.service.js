@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var pokemon_1 = require('./pokemon');
-var PokemonDetailComponent = (function () {
-    function PokemonDetailComponent() {
+var mock_pokemon_type_1 = require('./mock-pokemon-type');
+var PokemonTypesService = (function () {
+    function PokemonTypesService() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', pokemon_1.Pokemon)
-    ], PokemonDetailComponent.prototype, "pokemon", void 0);
-    PokemonDetailComponent = __decorate([
-        core_1.Component({
-            selector: 'pokemon-detail',
-            template: "\n    <div *ngIf=\"pokemon\">\n      <h2>{{pokemon.ename}}</h2>\n      <div><label>id: </label>{{pokemon.id}}</div>\n    </div>\n  "
-        }), 
+    PokemonTypesService.prototype.getPokemonTypes = function () {
+        return Promise.resolve(mock_pokemon_type_1.POKEMONTYPES);
+    };
+    PokemonTypesService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], PokemonDetailComponent);
-    return PokemonDetailComponent;
+    ], PokemonTypesService);
+    return PokemonTypesService;
 }());
-exports.PokemonDetailComponent = PokemonDetailComponent;
-//# sourceMappingURL=app.pokemon-detail.js.map
+exports.PokemonTypesService = PokemonTypesService;
+//# sourceMappingURL=pokemon-types.service.js.map

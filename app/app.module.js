@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_pokemon_master_1 = require('./app.pokemon-master');
+var app_pokemon_types_master_1 = require('./app.pokemon-types-master');
 var app_pokemon_detail_1 = require('./app.pokemon-detail');
 var app_component_1 = require('./app.component');
+var pokemon_types_service_1 = require('./pokemon-types.service');
 var pokemon_service_1 = require('./pokemon.service');
 var AppModule = (function () {
     function AppModule() {
@@ -22,8 +24,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
             ],
-            declarations: [app_component_1.AppComponent, app_pokemon_master_1.PokemonMasterComponent, app_pokemon_detail_1.PokemonDetailComponent],
-            providers: [pokemon_service_1.PokemonService],
+            declarations: [app_component_1.AppComponent, app_pokemon_master_1.PokemonMasterComponent, app_pokemon_detail_1.PokemonDetailComponent, app_pokemon_types_master_1.PokemonTypesMasterComponent],
+            providers: [pokemon_service_1.PokemonService, pokemon_types_service_1.PokemonTypesService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
