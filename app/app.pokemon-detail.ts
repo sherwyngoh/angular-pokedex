@@ -3,12 +3,7 @@ import { Pokemon } from './pokemon'
 
 @Component({
   selector: 'pokemon-detail',
-  template: `
-    <div *ngIf="pokemon">
-      <h2>{{pokemon.ename}}</h2>
-      <div><label>id: </label>{{pokemon.id}}</div>
-    </div>
-  `
+  templateUrl: 'templates/pokemon.html'
 })
 
 export class PokemonDetailComponent {

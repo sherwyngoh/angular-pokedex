@@ -30,7 +30,7 @@ var PokemonTypesMasterComponent = (function () {
     PokemonTypesMasterComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-types-master',
-            template: "\n    <div *ngFor=\"let type of pokemonTypes\">\n      {{type.ename}}\n    </div>\n    ",
+            templateUrl: 'templates/pokemon-types-master.html',
         }), 
         __metadata('design:paramtypes', [pokemon_types_service_1.PokemonTypesService])
     ], PokemonTypesMasterComponent);

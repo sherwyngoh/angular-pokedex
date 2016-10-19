@@ -4,11 +4,7 @@ import { PokemonTypesService } from './pokemon-types.service'
 
 @Component({
   selector: 'pokemon-types-master',
-  template: `
-    <div *ngFor="let type of pokemonTypes">
-      {{type.ename}}
-    </div>
-    `,
+  templateUrl: 'templates/pokemon-types-master.html',
 })
 
 

@@ -20,7 +20,7 @@ var PokemonDetailComponent = (function () {
     PokemonDetailComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-detail',
-            template: "\n    <div *ngIf=\"pokemon\">\n      <h2>{{pokemon.ename}}</h2>\n      <div><label>id: </label>{{pokemon.id}}</div>\n    </div>\n  "
+            templateUrl: 'templates/pokemon.html'
         }), 
         __metadata('design:paramtypes', [])
     ], PokemonDetailComponent);
