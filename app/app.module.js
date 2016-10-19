@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_hero_master_1 = require('./app.hero-master');
 var app_hero_detail_1 = require('./app.hero-detail');
+var app_component_1 = require('./app.component');
 var forms_1 = require('@angular/forms');
 var hero_service_1 = require('./hero.service');
 var AppModule = (function () {
@@ -23,9 +24,9 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule
             ],
-            declarations: [app_hero_master_1.HeroMasterComponent, app_hero_detail_1.HeroDetailComponent],
+            declarations: [app_component_1.AppComponent, app_hero_master_1.HeroMasterComponent, app_hero_detail_1.HeroDetailComponent],
             providers: [hero_service_1.HeroService],
-            bootstrap: [app_hero_master_1.HeroMasterComponent]
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

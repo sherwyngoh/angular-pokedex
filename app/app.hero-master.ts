@@ -4,9 +4,8 @@ import { HEROES } from './mock-heroes';
 import { HeroService } from './hero.service'
 
 @Component({
-  selector: 'app-main',
+  selector: 'hero-master',
   template: `
-    <h1>{{title}}</h1>
     <ul class="heroes">
       <li *ngFor="let hero of heroes"
       [class.selected]="hero === hero"  
@@ -73,8 +72,6 @@ export class HeroMasterComponent {
   heroes: Hero[];
   
   constructor(private heroService: HeroService) { }
-
-  title = "Tour of Heroes";
 
   getHeroes(): void {
     this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
