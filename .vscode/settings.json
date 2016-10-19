@@ -1,0 +1,12 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "app/*.js": true,
+        "app/*.js.map": true
+    },
+    "files.exclude": {
+        "app/*.js": true,
+        "app/*.js.map": true
+    }
+}
