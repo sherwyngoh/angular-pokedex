@@ -1,0 +1,1 @@
+{"version":3,"file":"app.pokemon-detail.js","sourceRoot":"","sources":["app.pokemon-detail.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAiC,eACjC,CAAC,CAD+C;AAChD,wBAAwB,WAExB,CAAC,CAFkC;AAYnC;IAAA;IAEA,CAAC;IADC;QAAC,YAAK,EAAE;;2DAAA;IAXV;QAAC,gBAAS,CAAC;YACT,QAAQ,EAAE,gBAAgB;YAC1B,QAAQ,EAAE,6IAKT;SACF,CAAC;;8BAAA;IAIF,6BAAC;AAAD,CAAC,AAFD,IAEC;AAFY,8BAAsB,yBAElC,CAAA"}

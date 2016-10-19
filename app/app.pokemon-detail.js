@@ -9,26 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_pokemon_master_1 = require('./app.pokemon-master');
-var app_pokemon_detail_1 = require('./app.pokemon-detail');
-var app_component_1 = require('./app.component');
-var pokemon_service_1 = require('./pokemon.service');
-var AppModule = (function () {
-    function AppModule() {
+var pokemon_1 = require('./pokemon');
+var PokemonDetailComponent = (function () {
+    function PokemonDetailComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-            ],
-            declarations: [app_component_1.AppComponent, app_pokemon_master_1.PokemonMasterComponent, app_pokemon_detail_1.PokemonDetailComponent],
-            providers: [pokemon_service_1.PokemonService],
-            bootstrap: [app_component_1.AppComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', pokemon_1.Pokemon)
+    ], PokemonDetailComponent.prototype, "pokemon", void 0);
+    PokemonDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'pokemon-detail',
+            template: "\n    <div *ngIf=\"pokemon\">\n      <h2>{{pokemon.name}} details!</h2>\n      <div><label>id: </label>{{pokemon.id}}</div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], PokemonDetailComponent);
+    return PokemonDetailComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.PokemonDetailComponent = PokemonDetailComponent;
+//# sourceMappingURL=app.pokemon-detail.js.map

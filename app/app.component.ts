@@ -4,10 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-main',
   template: `
   <h1>{{title}}</h1>
-  <hero-master></hero-master>
+  <pokemon-master></pokemon-master>
   `
 })
 
 export class AppComponent {
-  title = "Tour of Heroes";
+  title = "Pokemon";
 }

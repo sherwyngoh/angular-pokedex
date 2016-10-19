@@ -9,18 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "Pokemon";
+var mock_pokemon_1 = require('./mock-pokemon');
+var PokemonService = (function () {
+    function PokemonService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'app-main',
-            template: "\n  <h1>{{title}}</h1>\n  <pokemon-master></pokemon-master>\n  "
-        }), 
+    PokemonService.prototype.getPokemon = function () {
+        return Promise.resolve(mock_pokemon_1.POKEMON);
+    };
+    PokemonService.prototype.getPokemonSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            return setTimeout(resolve, 2000);
+        }) // delay 2 seconds
+            .then(function () { return _this.getPokemon(); });
+    };
+    PokemonService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], PokemonService);
+    return PokemonService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.PokemonService = PokemonService;
+//# sourceMappingURL=pokemon.service.js.map
