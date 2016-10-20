@@ -1,3 +1,6 @@
+import { PokemonType } from './pokemon-type';
+import { POKEMONTYPES } from './mock-pokemon-type';
+
 export class Pokemon {
   base: {
     Attack: number;
@@ -23,8 +26,18 @@ export class Pokemon {
   };
   type: string[];
 
-  getImage(): string {
-    return this.ename
+  getTypes?() {
+    const cname = this.type
+    let result = []
+    for(let type of cname) {
+      console.log(type);
+      for (let pokemonType of POKEMONTYPES) {
+        if(type === pokemonType.cname) {
+          result.push(type)
+        }
+      }
+    }
+    return result
   }
 }
 

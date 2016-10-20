@@ -24,27 +24,35 @@ html, body
 
 #pokemon-list
   text-align: center
+  padding-bottom: 15rem
   .pokemon
-    transition: opacity 0.3s ease
+    transition: opacity 0.3s ease, box-shadow 0.1s ease, transform 0.2s ease
+    transform: scale(0.9)
     padding: 1rem
     position: relative
     background: whitesmoke
     border: 1px solid black
     display: inline-block
     text-align: center
-    width: 8rem
-    max-width: 90%
-    margin: 0.5rem
-    border-radius: 4px
-    -moz-box-shadow:    3px 3px 5px 6px #ccc
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc
-    box-shadow:         3px 3px 5px 6px #ccc
-    img
-      margin-top: 20%
-      transform: translateY(-50%)
+    max-width: 33%
 
-    &:hover
+    border-radius: 4px
+    -moz-box-shadow:    3px 3px 5px 6px white
+    -webkit-box-shadow: 3px 3px 5px 6px white
+    box-shadow:         3px 3px 5px 6px white
+    img
+      margin-top: 5%
+
+    &:hover, &:active
+      -moz-box-shadow:    3px 3px 5px 6px #ccc
+      -webkit-box-shadow: 3px 3px 5px 6px #ccc
+      box-shadow:         3px 3px 5px 6px #ccc
       cursor: pointer
+
+    &.selected
+      transform: scale(1)
+      margin: 0rem
+
 
     .name
       font-size: 1rem
@@ -61,3 +69,28 @@ html, body
   &.active
     pointer-events: all
     opacity: 1
+
+#selectedPokemon
+  position: fixed
+  transform: translateX(-120%) 
+  padding: 1rem 
+  background: whitesmoke
+  border: 3px solid black
+  border-radius: 4px
+  z-index: 2
+  margin-top: 2rem
+  margin-left: 2rem
+  width: 30rem
+  z-index: 2
+  transition: transform 0.2s
+  max-width: 70%
+  &.active
+    transform: translateX(0)
+  
+  button
+    position: absolute
+    right: 1rem
+    top: 1rem
+    &:hover
+      cursor: pointer
+  

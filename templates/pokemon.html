@@ -1,4 +1,18 @@
-<div *ngIf="pokemon">
-  <h2>{{pokemon.ename}}</h2>
-  <div><label>id: </label>{{pokemon.id}}</div>
+<div  id="selectedPokemon"  [class.active]="pokemon">
+  <div *ngIf="pokemon">
+    <button (click)="pokemon = undefined">x</button>
+    
+    <img src="assets/images/thm/{{pokemon.id}}{{pokemon.flatName ? pokemon.flatName : pokemon.ename}}.png" alt="">
+    <h2>({{pokemon.id}}) - {{pokemon.ename}}</h2>
+    <ul class="base">
+      <h4>Base Stats</h4>
+      <li>Attack: {{pokemon.base.Attack}}</li>
+      <li>Defense: {{pokemon.base.Defense}}</li>
+      <li>HP: {{pokemon.base.HP}}</li>
+      <li>SpAtk: {{pokemon.base.SpAtk}}</li>
+      <li>SpDef: {{pokemon.base.SpDef}}</li>
+      <li>Speed: {{pokemon.base.Speed}}</li>
+    </ul>
+    
+  </div>
 </div>

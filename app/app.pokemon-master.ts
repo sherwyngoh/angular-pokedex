@@ -17,7 +17,10 @@ export class PokemonMasterComponent {
   constructor(private pokemonService: PokemonService) { }
 
   getPokemon(): void {
-    this.pokemonService.getPokemon().then(pokemon => this.pokemon = pokemon);
+    this.pokemonService.getPokemon().then((pokemon) => {
+      this.pokemon = pokemon;
+      this.selectedPokemon = pokemon[0];
+    });
   };
   
   ngOnInit(): void {

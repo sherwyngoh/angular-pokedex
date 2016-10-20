@@ -16,7 +16,10 @@ var PokemonMasterComponent = (function () {
     }
     PokemonMasterComponent.prototype.getPokemon = function () {
         var _this = this;
-        this.pokemonService.getPokemon().then(function (pokemon) { return _this.pokemon = pokemon; });
+        this.pokemonService.getPokemon().then(function (pokemon) {
+            _this.pokemon = pokemon;
+            _this.selectedPokemon = pokemon[0];
+        });
     };
     ;
     PokemonMasterComponent.prototype.ngOnInit = function () {
