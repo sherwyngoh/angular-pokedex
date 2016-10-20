@@ -1,17 +1,7 @@
-<div class="row">
-  <div class="twelve columns">
-    <h4>Filters</h4>
-  </div>
-</div>
-
-<div class="row">
-  <div class="six columns">
-    <div *ngFor="let type of pokemonTypes" 
-    (click)="toggle(type)" 
-    class="pokemon-type {{type.ename}}"
-    [class.deselected]="selectedPokemonTypes.indexOf(type) != -1"
-    >
-        {{type.ename}}
-    </div>
-  </div>
+<div *ngFor="let type of pokemonTypes" 
+(click)="toggle(type)" 
+class="pokemon-type {{type.ename}}"
+[class.deselected]="selectedPokemonTypes.indexOf(type) != -1"
+>
+    {{type.ename}}
 </div>

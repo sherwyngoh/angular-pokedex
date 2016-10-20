@@ -1,7 +1,25 @@
 <pokemon-detail [pokemon]=selectedPokemon></pokemon-detail>
 <div [class.active]="toggleFilter" id="filterModal">
-  <pokemon-types-master></pokemon-types-master>
+  <div class="row">
+    <div class="twelve columns">
+      <h4>Filters</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <pokemon-types-master></pokemon-types-master>
+    </div>
+
+    <div class="six columns">
+      <div class="row">
+        <div class="twelve columns">
+          <other-filters></other-filters>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 <section
   id="pokemon-list"
   [class.selected]="selectedPokemon"
