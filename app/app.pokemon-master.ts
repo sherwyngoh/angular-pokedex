@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Pokemon } from './pokemon';
 import { POKEMON } from './mock-pokemon';
-import { PokemonService } from './pokemon.service'
+import { PokemonService } from './pokemon.service';
 
 @Component({
   selector: 'pokemon-master',
