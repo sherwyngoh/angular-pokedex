@@ -6,7 +6,7 @@ import { PokemonDetailComponent }   from './app.pokemon-detail';
 import { AppComponent }   from './app.component';
 import { PokemonTypesService }   from './pokemon-types.service';
 import { PokemonService }   from './pokemon.service';
-import { ScrollRevealDirective } from './scroll-reveal.directive'
+import { OtherFiltersComponent } from './app.other-filters'
 
 @NgModule({
   imports:      [ 
@@ -17,7 +17,7 @@ import { ScrollRevealDirective } from './scroll-reveal.directive'
     PokemonMasterComponent, 
     PokemonDetailComponent, 
     PokemonTypesMasterComponent,
-    ScrollRevealDirective 
+    OtherFiltersComponent, 
     ],
   providers: [ PokemonService, PokemonTypesService ],
   bootstrap:    [ AppComponent ]

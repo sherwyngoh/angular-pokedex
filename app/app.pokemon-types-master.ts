@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PokemonType } from './pokemon-type';
 import { PokemonTypesService } from './pokemon-types.service'
 
@@ -8,8 +8,9 @@ import { PokemonTypesService } from './pokemon-types.service'
 })
 
 
-export class PokemonTypesMasterComponent { 
-  selectedPokemonTypes: PokemonType[];
+export class PokemonTypesMasterComponent {
+  @Input() selectedPokemonTypes: PokemonType[];
+  @Output() typeFilter = new EventEmitter();
   pokemonTypes: PokemonType[];
   toggleTypes: false;
 
@@ -28,8 +29,15 @@ export class PokemonTypesMasterComponent {
     const index = this.selectedPokemonTypes.indexOf(pokemonType);
     if (index === -1) {
       this.selectedPokemonTypes.push(pokemonType);
+      this.typeFilter.emit({
+        value: this.selectedPokemonTypes
+      })
+
     } else {
-      this.selectedPokemonTypes.splice(index, 1) ;
+      this.selectedPokemonTypes.splice(index, 1);
+      this.typeFilter.emit({
+        value: this.selectedPokemonTypes
+      })
     }
   };
 

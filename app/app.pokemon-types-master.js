@@ -13,6 +13,7 @@ var pokemon_types_service_1 = require('./pokemon-types.service');
 var PokemonTypesMasterComponent = (function () {
     function PokemonTypesMasterComponent(PokemonTypesService) {
         this.PokemonTypesService = PokemonTypesService;
+        this.typeFilter = new core_1.EventEmitter();
     }
     PokemonTypesMasterComponent.prototype.getPokemonTypes = function () {
         var _this = this;
@@ -28,9 +29,15 @@ var PokemonTypesMasterComponent = (function () {
         var index = this.selectedPokemonTypes.indexOf(pokemonType);
         if (index === -1) {
             this.selectedPokemonTypes.push(pokemonType);
+            this.typeFilter.emit({
+                value: this.selectedPokemonTypes
+            });
         }
         else {
             this.selectedPokemonTypes.splice(index, 1);
+            this.typeFilter.emit({
+                value: this.selectedPokemonTypes
+            });
         }
     };
     ;
@@ -57,6 +64,14 @@ var PokemonTypesMasterComponent = (function () {
         };
         return colors[type];
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], PokemonTypesMasterComponent.prototype, "selectedPokemonTypes", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], PokemonTypesMasterComponent.prototype, "typeFilter", void 0);
     PokemonTypesMasterComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-types-master',

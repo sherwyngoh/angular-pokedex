@@ -7,30 +7,33 @@
   </div>
   <div class="row">
     <div class="six columns">
-      <pokemon-types-master></pokemon-types-master>
+      <span *ngIf="typesFilter">
+        <div *ngFor="let item of typesFilter.value" >{{item.ename}}</div>
+      </span>
+      <pokemon-types-master (typeFilter)="typeFilterEvent($event)"></pokemon-types-master>
     </div>
 
     <div class="six columns">
       <div class="row">
         <div class="twelve columns">
+          {{selectedPokemonTypes}}
           <other-filters></other-filters>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <section
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
   <div 
-  class="pokemon {{p.type[0]}}" 
-  *ngFor="let p of pokemon"
+  class="pokemon" 
+  *ngFor="let p of filteredPokemon"
   [class.selected]="selectedPokemon === p"
   (click)="onSelect(p)">
     <img src="assets/images/spr/{{p.id}}MS.png" alt="">
-    <div class="name">{{p.ename}}</div>
+    <div class="name">{{p.ename}} {{p.type}}</div>
   </div>
 </section>
 
