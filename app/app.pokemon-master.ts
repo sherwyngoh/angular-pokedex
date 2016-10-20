@@ -10,7 +10,9 @@ import { PokemonService } from './pokemon.service';
 })
 
 
-export class PokemonMasterComponent { 
+export class PokemonMasterComponent {
+  typesFilter: string[];
+  toggleFilter: boolean;
   selectedPokemon: Pokemon;
   pokemon: Pokemon[];
   
@@ -25,13 +27,12 @@ export class PokemonMasterComponent {
   
   ngOnInit(): void {
     this.getPokemon();
+    this.toggleFilter = true;
   };
   
   onSelect(pokemon: Pokemon): void {
     this.selectedPokemon = pokemon;
   };
-  
-
 }
 
 

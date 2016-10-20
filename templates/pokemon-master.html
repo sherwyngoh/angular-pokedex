@@ -1,5 +1,8 @@
 <pokemon-detail [pokemon]=selectedPokemon></pokemon-detail>
-<section 
+<div [class.active]="toggleFilter" id="filterModal">
+  <pokemon-types-master></pokemon-types-master>
+</div>
+<section
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
@@ -12,3 +15,5 @@
     <div class="name">{{p.ename}}</div>
   </div>
 </section>
+
+<a (click)="toggleFilter = !toggleFilter" [class.active]="toggleFilter" class="pokeball"></a>

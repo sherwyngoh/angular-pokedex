@@ -24,6 +24,7 @@ var PokemonMasterComponent = (function () {
     ;
     PokemonMasterComponent.prototype.ngOnInit = function () {
         this.getPokemon();
+        this.toggleFilter = true;
     };
     ;
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
