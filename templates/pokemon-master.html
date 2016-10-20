@@ -12,18 +12,18 @@
   </div>
 </div>
 
+<header>
+  <div class="row">
+    <div class="twelve columns">
+      <h4>Sort</h4>
+    </div>
+  </div>
+</header>
+
 <section
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
-  <header>
-    <div class="row">
-      <div class="twelve columns">
-        <h4>Sort</h4>
-      </div>
-    </div>
-  </header>
-  
   <div 
   class="pokemon" 
   *ngFor="let p of filteredPokemon"
