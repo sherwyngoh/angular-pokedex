@@ -22,22 +22,30 @@ html, body {
   .pokeball.active {
     opacity: 1; }
 
-img {
-  display: block; }
-
-#pokemon-list .pokemon {
-  transition: opacity 0.4 ease;
-  position: relative;
-  background: whitesmoke;
-  height: 10rem;
-  border: 1px solid black; }
-  #pokemon-list .pokemon img {
-    max-height: 50%; }
-  #pokemon-list .pokemon .name {
-    position: absolute;
-    bottom: 0;
-    height: 5rem;
-    font-size: 1.2rem; }
+#pokemon-list {
+  text-align: center; }
+  #pokemon-list .pokemon {
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    position: relative;
+    background: whitesmoke;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    width: 8rem;
+    max-width: 90%;
+    margin: 0.5rem;
+    border-radius: 4px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc; }
+    #pokemon-list .pokemon img {
+      margin-top: 20%;
+      transform: translateY(-50%); }
+    #pokemon-list .pokemon:hover {
+      cursor: pointer; }
+    #pokemon-list .pokemon .name {
+      font-size: 1rem; }
 
 #filterModal {
   height: 100%;

@@ -22,23 +22,32 @@ html, body
   &.active
     opacity: 1
 
-img
-  display: block
-
 #pokemon-list
+  text-align: center
   .pokemon
-    transition: opacity 0.4 ease
+    transition: opacity 0.3s ease
+    padding: 1rem
     position: relative
     background: whitesmoke
-    height: 10rem
     border: 1px solid black
+    display: inline-block
+    text-align: center
+    width: 8rem
+    max-width: 90%
+    margin: 0.5rem
+    border-radius: 4px
+    -moz-box-shadow:    3px 3px 5px 6px #ccc
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc
+    box-shadow:         3px 3px 5px 6px #ccc
     img
-      max-height: 50%
+      margin-top: 20%
+      transform: translateY(-50%)
+
+    &:hover
+      cursor: pointer
+
     .name
-      position: absolute
-      bottom: 0
-      height: 5rem
-      font-size: 1.2rem
+      font-size: 1rem
 
 #filterModal
   height: 100%
@@ -52,4 +61,3 @@ img
   &.active
     pointer-events: all
     opacity: 1
-
