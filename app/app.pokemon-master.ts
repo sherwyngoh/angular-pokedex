@@ -3,13 +3,10 @@ import { Pokemon } from './pokemon';
 import { POKEMON } from './mock-pokemon';
 import { PokemonService } from './pokemon.service';
 
+
 @Component({
   selector: 'pokemon-master',
-  templateUrl: 'templates/pokemon-master.html',
-  styles: [`
-
-    `]
-
+  templateUrl: 'templates/pokemon-master.html'
 })
 
 

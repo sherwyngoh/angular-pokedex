@@ -30,8 +30,7 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-master',
-            templateUrl: 'templates/pokemon-master.html',
-            styles: ["\n\n    "]
+            templateUrl: 'templates/pokemon-master.html'
         }), 
         __metadata('design:paramtypes', [pokemon_service_1.PokemonService])
     ], PokemonMasterComponent);
