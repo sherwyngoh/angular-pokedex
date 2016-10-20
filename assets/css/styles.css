@@ -1,37 +1,22 @@
 html, body {
   height: 100%; }
 
-.pokeball {
-  border: none;
-  background-color: transparent;
-  background-image: url("../images/pokeball.svg");
-  background-size: cover;
-  height: 9rem;
-  width: 9rem;
-  position: fixed;
-  z-index: 99;
-  left: 50%;
-  transform: translateX(-50%) scale(1);
-  opacity: 0.9;
-  transition: transform 0.2s, opacity 0.3s, bottom 0.3s;
-  bottom: 0; }
-  .pokeball:hover, .pokeball:active {
-    cursor: pointer;
-    opacity: 1;
-    transform: translateX(-50%) scale(1.25); }
-  .pokeball.active {
-    opacity: 1;
-    bottom: 50%; }
+header {
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 0 #ccc;
+  padding: 1rem 1rem 0 1rem;
+  background: whitesmoke; }
 
 #pokemon-list {
   text-align: center;
   padding-bottom: 15rem; }
   #pokemon-list .pokemon {
     transition: opacity 0.3s ease, box-shadow 0.1s ease, transform 0.2s ease;
-    transform: scale(0.9);
+    transform: scale(1) translate(0, 0);
     padding: 1rem;
     position: relative;
     background: whitesmoke;
+    margin: 0.5rem;
     border: 1px solid black;
     display: inline-block;
     text-align: center;
@@ -40,6 +25,9 @@ html, body {
     -moz-box-shadow: 3px 3px 5px 6px white;
     -webkit-box-shadow: 3px 3px 5px 6px white;
     box-shadow: 3px 3px 5px 6px white; }
+    #pokemon-list .pokemon.fade {
+      opacity: 0.8;
+      transform: scale(0.5); }
     #pokemon-list .pokemon img {
       margin-top: 5%; }
     #pokemon-list .pokemon:hover, #pokemon-list .pokemon:active {
@@ -51,13 +39,14 @@ html, body {
       transform: scale(1);
       margin: 0rem; }
     #pokemon-list .pokemon .name {
-      font-size: 1rem; }
+      font-size: 1.2rem; }
 
 #filterModal {
   height: 100%;
-  width: 100%;
+  width: 50%;
   position: fixed;
   background: white;
+  border-right: 1px solid #222;
   z-index: 98;
   opacity: 0;
   transition: opacity 0.2s ease;
@@ -68,8 +57,9 @@ html, body {
     opacity: 1; }
   #filterModal h4 {
     padding: 1rem;
+    font-weight: bold;
     text-align: center;
-    font-weight: bold; }
+    margin-bottom: 0; }
 
 #selectedPokemon {
   position: fixed;
@@ -98,129 +88,162 @@ html, body {
   padding: 0.5rem;
   width: 10rem;
   min-width: 30%;
+  max-width: 40%;
   margin: 1rem;
   text-align: center;
   font-size: 1.5rem;
-  transform: translateX(0%);
+  transform: scale(1);
   opacity: 1;
   transition: all 0.2s ease;
   display: inline-block;
   color: white;
   border-radius: 4px; }
   .pokemon-type.deselected {
-    background: white !important; }
-  .pokemon-type:last-child {
-    margin-bottom: 5rem; }
+    transform: scale(0.9);
+    background: white !important;
+    border: 2px solid #222 !important;
+    color: #222; }
   .pokemon-type.Grass {
     background: #7ac74c;
     border: 2px solid #61ab35; }
-    .pokemon-type.Grass.deselected {
-      color: #7ac74c;
-      border: 2px solid #61ab35; }
   .pokemon-type.Normal {
     background: #A8A77A;
     border: 2px solid #908f5f; }
-    .pokemon-type.Normal.deselected {
-      color: #A8A77A;
-      border: 2px solid #908f5f; }
   .pokemon-type.Fighting {
     background: #C22E28;
     border: 2px solid #98241f; }
-    .pokemon-type.Fighting.deselected {
-      color: #C22E28;
-      border: 2px solid #98241f; }
   .pokemon-type.Flying {
     background: #A98FF3;
     border: 2px solid #8661ee; }
-    .pokemon-type.Flying.deselected {
-      color: #A98FF3;
-      border: 2px solid #8661ee; }
   .pokemon-type.Poison {
     background: #A33EA1;
     border: 2px solid #7e307d; }
-    .pokemon-type.Poison.deselected {
-      color: #A33EA1;
-      border: 2px solid #7e307d; }
   .pokemon-type.Ground {
     background: #E2BF65;
     border: 2px solid #daad3a; }
-    .pokemon-type.Ground.deselected {
-      color: #E2BF65;
-      border: 2px solid #daad3a; }
   .pokemon-type.Rock {
     background: #B6A136;
     border: 2px solid #8f7e2a; }
-    .pokemon-type.Rock.deselected {
-      color: #B6A136;
-      border: 2px solid #8f7e2a; }
   .pokemon-type.Bug {
     background: #A6B91A;
     border: 2px solid #A6B91A; }
-    .pokemon-type.Bug.deselected {
-      color: #A6B91A;
-      border: 2px solid #A6B91A; }
   .pokemon-type.Ghost {
     background: #735797;
     border: 2px solid #735797; }
-    .pokemon-type.Ghost.deselected {
-      color: #735797;
-      border: 2px solid #735797; }
   .pokemon-type.Steel {
     background: #B7B7CE;
     border: 2px solid #B7B7CE; }
-    .pokemon-type.Steel.deselected {
-      color: #B7B7CE;
-      border: 2px solid #B7B7CE; }
   .pokemon-type.Fire {
     background: #EE8130;
     border: 1px solid #EE8130; }
-    .pokemon-type.Fire.deselected {
-      color: #EE8130;
-      border: 1px solid #EE8130; }
   .pokemon-type.Water {
     background: #6390f0;
     border: 1px solid #6390f0; }
-    .pokemon-type.Water.deselected {
-      color: #6390f0;
-      border: 1px solid #6390f0; }
   .pokemon-type.Electric {
     background: #F7d02C;
     border: 1px solid #F7d02C; }
-    .pokemon-type.Electric.deselected {
-      color: #F7d02C;
-      border: 1px solid #F7d02C; }
   .pokemon-type.Psychic {
     background: #F95587;
     border: 1px solid #F95587; }
-    .pokemon-type.Psychic.deselected {
-      color: #F95587;
-      border: 1px solid #F95587; }
   .pokemon-type.Ice {
     background: #96D9D6;
     border: 1px solid #96D9D6; }
-    .pokemon-type.Ice.deselected {
-      color: #96D9D6;
-      border: 1px solid #96D9D6; }
   .pokemon-type.Dragon {
     background: #6F35FC;
     border: 1px solid #6F35FC; }
-    .pokemon-type.Dragon.deselected {
-      color: #6F35FC;
-      border: 1px solid #6F35FC; }
   .pokemon-type.Dark {
     background: #705746;
     border: 1px solid #705746; }
-    .pokemon-type.Dark.deselected {
-      color: #705746;
-      border: 1px solid #705746; }
   .pokemon-type.Fairy {
     background: #D685AD;
     border: 1px solid #D685AD; }
-    .pokemon-type.Fairy.deselected {
-      color: #D685AD;
-      border: 1px solid #D685AD; }
   .pokemon-type:hover {
     cursor: pointer;
     transform: scale(1.1) translateX(0); }
+
+footer {
+  background: white;
+  border-top: 1px solid #222;
+  height: 5rem;
+  z-index: 99;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  transition: height 0.3s ease; }
+  @media all and (max-width: 800px) {
+    footer {
+      height: 4rem; } }
+  footer .footer-icon {
+    height: 4rem;
+    margin: 0.5rem 2rem;
+    float: left;
+    transition: height 0.3s ease; }
+    @media all and (max-width: 800px) {
+      footer .footer-icon {
+        height: 3rem; } }
+
+#searchQuery {
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2.2rem;
+  width: 40%;
+  min-width: 15rem;
+  border: none;
+  float: left; }
+  @media all and (max-width: 800px) {
+    #searchQuery {
+      height: 4rem;
+      line-height: 4rem;
+      font-size: 1.5rem; } }
+
+.pokeball {
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/pokeball.svg");
+  background-size: cover;
+  height: 10rem;
+  width: 10rem;
+  z-index: 99;
+  position: fixed;
+  right: 50%;
+  transform: scale(1) translateX(50%);
+  transition: transform 0.2s, bottom 0.3s;
+  bottom: 0; }
+  .pokeball:hover, .pokeball:active {
+    cursor: pointer;
+    transform: scale(1.25) translateX(50%); }
+  .pokeball.active {
+    transform: scale(1.25) translateX(50%);
+    bottom: 50%; }
+
+.center {
+  text-align: center; }
+
+.toggle-wrapper {
+  width: 8rem;
+  height: 2.8rem;
+  border-radius: 30px;
+  background: lightgrey;
+  border: 1px solid grey;
+  position: relative;
+  display: block;
+  margin: 1rem auto 2rem auto;
+  transition: background 0.2s ease; }
+  .toggle-wrapper.active {
+    background: darkorange; }
+    .toggle-wrapper.active #pikachu-toggle {
+      transform: rotate(20deg);
+      left: 6rem; }
+  .toggle-wrapper:hover {
+    cursor: pointer; }
+  .toggle-wrapper #pikachu-toggle {
+    position: absolute;
+    height: 5rem;
+    margin-top: -1.5rem;
+    transition: transform 0.2s ease, left 0.2s ease;
+    transform: rotate(-20deg);
+    left: -4rem; }
+    .toggle-wrapper #pikachu-toggle:hover {
+      transform: rotate(0deg); }
 
 /*# sourceMappingURL=styles.css.map */

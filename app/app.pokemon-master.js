@@ -21,7 +21,7 @@ var PokemonMasterComponent = (function () {
         this.pokemonService.getPokemon().then(function (pokemon) {
             _this.pokemon = pokemon;
             _this.filteredPokemon = pokemon;
-            // this.getPokemonTypes();
+            _this.getPokemonTypes();
             // this.selectedPokemon = pokemon[0];
         });
     };
@@ -30,14 +30,12 @@ var PokemonMasterComponent = (function () {
         var _this = this;
         this.pokemonTypesService.getPokemonTypes().then(function (pokemonTypes) {
             _this.pokemonTypes = pokemonTypes;
-            for (var i in _this.pokemon) {
-                _this.pokemon[i] = _this.getTypes(_this.pokemon[i]);
-            }
         });
     };
     PokemonMasterComponent.prototype.ngOnInit = function () {
         this.getPokemon();
         this.toggleFilter = false;
+        this.searchQuery = '';
     };
     ;
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
@@ -73,8 +71,19 @@ var PokemonMasterComponent = (function () {
         pokemon.type = result;
         return pokemon;
     };
-    PokemonMasterComponent.prototype.nameIdFilterEvent = function (value) {
-        this.nameIdFilter = value;
+    PokemonMasterComponent.prototype.updateSearchQuery = function () {
+        var _this = this;
+        console.log(this.searchQuery);
+        if (this.searchQuery != undefined) {
+            this.filteredPokemon = this.pokemon.filter(function (pokemon) {
+                console.log(pokemon.ename.toLowerCase().indexOf(_this.searchQuery.toLowerCase()));
+                if (pokemon.ename.indexOf(_this.searchQuery) != -1) {
+                    return true;
+                }
+                return false;
+            });
+        }
+        this.typeFilterEvent(this.typesFilter);
     };
     PokemonMasterComponent = __decorate([
         core_1.Component({

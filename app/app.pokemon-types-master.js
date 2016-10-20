@@ -23,6 +23,7 @@ var PokemonTypesMasterComponent = (function () {
     PokemonTypesMasterComponent.prototype.ngOnInit = function () {
         this.getPokemonTypes();
         this.selectedPokemonTypes = [];
+        this.toggleAll = true;
     };
     ;
     PokemonTypesMasterComponent.prototype.toggle = function (pokemonType) {
@@ -39,6 +40,20 @@ var PokemonTypesMasterComponent = (function () {
                 value: this.selectedPokemonTypes
             });
         }
+    };
+    ;
+    PokemonTypesMasterComponent.prototype.toggleAllHandler = function () {
+        if (this.toggleAll) {
+            this.toggleAll = !this.toggleAll;
+            this.selectedPokemonTypes = this.pokemonTypes;
+        }
+        else {
+            this.toggleAll = !this.toggleAll;
+            this.selectedPokemonTypes = [];
+        }
+        this.typeFilter.emit({
+            value: this.selectedPokemonTypes
+        });
     };
     ;
     PokemonTypesMasterComponent.prototype.getColor = function (type) {

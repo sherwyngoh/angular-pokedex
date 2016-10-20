@@ -2,38 +2,36 @@
 <div [class.active]="toggleFilter" id="filterModal">
   <div class="row">
     <div class="twelve columns">
-      <h4>Filters</h4>
+      <h4>Filter out types ( Click to toggle )</h4>
     </div>
   </div>
   <div class="row">
-    <div class="six columns">
-      <span *ngIf="typesFilter">
-        <div *ngFor="let item of typesFilter.value" >{{item.ename}}</div>
-      </span>
+    <div class="twelve columns">
       <pokemon-types-master (typeFilter)="typeFilterEvent($event)"></pokemon-types-master>
-    </div>
-
-    <div class="six columns">
-      <div class="row">
-        <div class="twelve columns">
-          {{selectedPokemonTypes}}
-          <other-filters></other-filters>
-        </div>
-      </div>
     </div>
   </div>
 </div>
+
 <section
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
+  <header>
+    <div class="row">
+      <div class="twelve columns">
+        <h4>Sort</h4>
+      </div>
+    </div>
+  </header>
+  
   <div 
   class="pokemon" 
   *ngFor="let p of filteredPokemon"
   [class.selected]="selectedPokemon === p"
-  (click)="onSelect(p)">
+  (click)="onSelect(p)"
+  [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" >
     <img src="assets/images/spr/{{p.id}}MS.png" alt="">
-    <div class="name">{{p.ename}} {{p.type}}</div>
+    <div class="name">{{p.ename}}</div>
   </div>
 </section>
 

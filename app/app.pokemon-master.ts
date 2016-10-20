@@ -13,6 +13,7 @@ import { PokemonTypesService } from './pokemon-types.service';
 
 export class PokemonMasterComponent {
   typesFilter: string[];
+  searchQuery: string;
   nameIdFilter: string;
   toggleFilter: boolean;
   selectedPokemon: Pokemon;
@@ -31,7 +32,7 @@ export class PokemonMasterComponent {
     this.pokemonService.getPokemon().then((pokemon) => {
       this.pokemon = pokemon;
       this.filteredPokemon = pokemon;
-      // this.getPokemonTypes();
+      this.getPokemonTypes();
       // this.selectedPokemon = pokemon[0];
     });
   };
@@ -39,16 +40,13 @@ export class PokemonMasterComponent {
   getPokemonTypes(): void {
     this.pokemonTypesService.getPokemonTypes().then((pokemonTypes)=> {
       this.pokemonTypes = pokemonTypes;
-      for ( let i in this.pokemon ) {
-        this.pokemon[i] = this.getTypes(this.pokemon[i])
-      }
     })
   }
 
   ngOnInit(): void {
     this.getPokemon();
     this.toggleFilter = false;
-    
+    this.searchQuery = '';
   };
   
   onSelect(pokemon: Pokemon): void {
@@ -86,8 +84,18 @@ export class PokemonMasterComponent {
     return pokemon
   }
 
-  nameIdFilterEvent(value: string): void {
-    this.nameIdFilter = value;
+  updateSearchQuery(): void {
+    console.log(this.searchQuery);
+    if ( this.searchQuery != undefined ) {
+      this.filteredPokemon = this.pokemon.filter((pokemon) => {
+        console.log(pokemon.ename.toLowerCase().indexOf(this.searchQuery.toLowerCase()))
+        if (pokemon.ename.indexOf(this.searchQuery) != -1) {
+          return true;
+        } 
+        return false;
+      });
+    }
+    this.typeFilterEvent(this.typesFilter);
   }
 }
 

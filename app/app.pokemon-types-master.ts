@@ -12,7 +12,7 @@ export class PokemonTypesMasterComponent {
   @Input() selectedPokemonTypes: PokemonType[];
   @Output() typeFilter = new EventEmitter();
   pokemonTypes: PokemonType[];
-  toggleTypes: false;
+  toggleAll: boolean;
 
   constructor(private PokemonTypesService: PokemonTypesService) { }
 
@@ -23,6 +23,7 @@ export class PokemonTypesMasterComponent {
   ngOnInit(): void {
     this.getPokemonTypes();
     this.selectedPokemonTypes = [];
+    this.toggleAll = true;
   };
   
   toggle(pokemonType: PokemonType): void {
@@ -39,6 +40,19 @@ export class PokemonTypesMasterComponent {
         value: this.selectedPokemonTypes
       })
     }
+  };
+
+  toggleAllHandler(): void {
+    if ( this.toggleAll ) {
+      this.toggleAll = !this.toggleAll;
+      this.selectedPokemonTypes = this.pokemonTypes;
+    } else {
+      this.toggleAll = !this.toggleAll;
+      this.selectedPokemonTypes = [];
+    }
+    this.typeFilter.emit({
+      value: this.selectedPokemonTypes
+    })
   };
 
   getColor(type: string): string {

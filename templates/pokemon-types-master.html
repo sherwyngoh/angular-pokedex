@@ -1,7 +1,18 @@
-<div *ngFor="let type of pokemonTypes" 
-(click)="toggle(type)" 
-class="pokemon-type {{type.ename}}"
-[class.deselected]="selectedPokemonTypes.indexOf(type) != -1"
->
-    {{type.ename}}
+<div class="row">
+    <div class="twelve columns center">
+        <div class="toggle-wrapper" [class.active]="toggleAll" (click)="toggleAllHandler()">
+            <img src="assets/images/icons/pikachu.svg" alt="" id="pikachu-toggle">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve columns center">
+        <div *ngFor="let type of pokemonTypes" 
+        (click)="toggle(type)" 
+        class="pokemon-type {{type.ename}}"
+        [class.deselected]="selectedPokemonTypes.indexOf(type) != -1"
+        >
+            {{type.ename}}
+        </div>
+    </div>
 </div>
