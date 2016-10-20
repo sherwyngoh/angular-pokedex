@@ -6,12 +6,19 @@ import { PokemonDetailComponent }   from './app.pokemon-detail';
 import { AppComponent }   from './app.component';
 import { PokemonTypesService }   from './pokemon-types.service';
 import { PokemonService }   from './pokemon.service';
+import { ScrollRevealDirective } from './scroll-reveal.directive'
 
 @NgModule({
   imports:      [ 
     BrowserModule,
     ],
-  declarations: [ AppComponent, PokemonMasterComponent, PokemonDetailComponent, PokemonTypesMasterComponent ],
+  declarations: [ 
+    AppComponent, 
+    PokemonMasterComponent, 
+    PokemonDetailComponent, 
+    PokemonTypesMasterComponent,
+    ScrollRevealDirective 
+    ],
   providers: [ PokemonService, PokemonTypesService ],
   bootstrap:    [ AppComponent ]
 })

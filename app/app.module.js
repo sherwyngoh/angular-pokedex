@@ -16,6 +16,7 @@ var app_pokemon_detail_1 = require('./app.pokemon-detail');
 var app_component_1 = require('./app.component');
 var pokemon_types_service_1 = require('./pokemon-types.service');
 var pokemon_service_1 = require('./pokemon.service');
+var scroll_reveal_directive_1 = require('./scroll-reveal.directive');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,13 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
             ],
-            declarations: [app_component_1.AppComponent, app_pokemon_master_1.PokemonMasterComponent, app_pokemon_detail_1.PokemonDetailComponent, app_pokemon_types_master_1.PokemonTypesMasterComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                app_pokemon_master_1.PokemonMasterComponent,
+                app_pokemon_detail_1.PokemonDetailComponent,
+                app_pokemon_types_master_1.PokemonTypesMasterComponent,
+                scroll_reveal_directive_1.ScrollRevealDirective
+            ],
             providers: [pokemon_service_1.PokemonService, pokemon_types_service_1.PokemonTypesService],
             bootstrap: [app_component_1.AppComponent]
         }), 
