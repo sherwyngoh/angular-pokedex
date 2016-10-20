@@ -236,6 +236,8 @@ footer {
       left: 6rem; }
   .toggle-wrapper:hover {
     cursor: pointer; }
+    .toggle-wrapper:hover #pikachu-toggle {
+      transform: rotate(0deg); }
   .toggle-wrapper #pikachu-toggle {
     position: absolute;
     height: 5rem;
@@ -243,7 +245,11 @@ footer {
     transition: transform 0.2s ease, left 0.2s ease;
     transform: rotate(-20deg);
     left: -4rem; }
-    .toggle-wrapper #pikachu-toggle:hover {
-      transform: rotate(0deg); }
+  .toggle-wrapper label {
+    position: absolute;
+    transform: translateX(-10rem);
+    color: darkgrey; }
+    .toggle-wrapper label.right {
+      transform: translateX(13rem); }
 
 /*# sourceMappingURL=styles.css.map */
