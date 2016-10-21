@@ -33,7 +33,6 @@ export class PokemonMasterComponent {
       this.pokemon = pokemon;
       this.filteredPokemon = pokemon;
       this.getPokemonTypes();
-      this.selectedPokemon = pokemon[0];
     });
   };
   
@@ -45,7 +44,7 @@ export class PokemonMasterComponent {
 
   ngOnInit(): void {
     this.getPokemon();
-    this.toggleFilter = false;
+    this.toggleFilter = true;
     this.searchQuery = '';
   };
   

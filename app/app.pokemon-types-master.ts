@@ -29,12 +29,14 @@ export class PokemonTypesMasterComponent {
   toggle(pokemonType: PokemonType): void {
     const index = this.selectedPokemonTypes.indexOf(pokemonType);
     if (index === -1) {
+      console.log(this.selectedPokemonTypes)
       this.selectedPokemonTypes.push(pokemonType);
       this.typeFilter.emit({
         value: this.selectedPokemonTypes
       })
 
     } else {
+      console.log(this.selectedPokemonTypes)
       this.selectedPokemonTypes.splice(index, 1);
       this.typeFilter.emit({
         value: this.selectedPokemonTypes
@@ -45,7 +47,7 @@ export class PokemonTypesMasterComponent {
   toggleAllHandler(): void {
     if ( this.toggleAll ) {
       this.toggleAll = !this.toggleAll;
-      this.selectedPokemonTypes = this.pokemonTypes;
+      this.selectedPokemonTypes = this.pokemonTypes.map(t => t);
     } else {
       this.toggleAll = !this.toggleAll;
       this.selectedPokemonTypes = [];

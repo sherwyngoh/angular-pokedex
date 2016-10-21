@@ -22,7 +22,6 @@ var PokemonMasterComponent = (function () {
             _this.pokemon = pokemon;
             _this.filteredPokemon = pokemon;
             _this.getPokemonTypes();
-            _this.selectedPokemon = pokemon[0];
         });
     };
     ;
@@ -34,7 +33,7 @@ var PokemonMasterComponent = (function () {
     };
     PokemonMasterComponent.prototype.ngOnInit = function () {
         this.getPokemon();
-        this.toggleFilter = false;
+        this.toggleFilter = true;
         this.searchQuery = '';
     };
     ;
