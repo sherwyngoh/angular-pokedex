@@ -2,12 +2,21 @@ html, body {
   height: 100%; }
 
 header {
-  margin-bottom: 1rem;
-  box-shadow: 0 0 0 0 #ccc;
+  box-shadow: 1px 1px 1px 2px #ccc;
   padding: 1rem 1rem 0 1rem;
-  background: whitesmoke; }
+  background: whitesmoke;
+  position: fixed;
+  z-index: 3;
+  width: 100%; }
+  header .icon {
+    font-size: 2rem;
+    margin-right: 2rem; }
+  header .arrow {
+    transition: transform 0.2s ease;
+    float: right; }
 
 #pokemon-list {
+  padding-top: 7.5rem;
   text-align: center;
   padding-bottom: 15rem; }
   #pokemon-list .pokemon {
@@ -127,7 +136,7 @@ header {
     right: 1rem;
     top: 1rem;
     background: white;
-    border-radius: 15px; }
+    border-radius: 50%; }
   #selectedPokemon .img-wrapper {
     width: 95%;
     margin: 0 auto 0 auto;
@@ -150,7 +159,8 @@ header {
   #selectedPokemon button {
     position: absolute;
     right: 1rem;
-    top: 1rem; }
+    top: 1rem;
+    z-index: 99; }
     #selectedPokemon button:hover {
       cursor: pointer; }
   #selectedPokemon table {

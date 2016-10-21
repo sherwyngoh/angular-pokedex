@@ -20,6 +20,9 @@ export class PokemonMasterComponent {
   selectedPokemonTypes: PokemonType[];
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
+  sortID: number;
+  sortName: number;
+  sortType: number;
 
   filteredPokemon: Pokemon[];
   
@@ -27,6 +30,15 @@ export class PokemonMasterComponent {
     private pokemonService: PokemonService,
     private pokemonTypesService: PokemonTypesService, 
     ) { }
+
+  ngOnInit(): void {
+    this.getPokemon();
+    this.toggleFilter = false;
+    this.searchQuery = '';
+    this.sortID = 1;
+    this.sortName = 0;
+    this.sortType = 0;
+  };
 
   getPokemon(): void {
     this.pokemonService.getPokemon().then((pokemon) => {
@@ -42,11 +54,6 @@ export class PokemonMasterComponent {
     })
   }
 
-  ngOnInit(): void {
-    this.getPokemon();
-    this.toggleFilter = true;
-    this.searchQuery = '';
-  };
   
   onSelect(pokemon: Pokemon): void {
     this.selectedPokemon = pokemon;
@@ -95,6 +102,21 @@ export class PokemonMasterComponent {
     }
     this.typeFilterEvent(this.typesFilter);
   }
+
+  performSortToggle(field: string): void {
+    switch ( field ) {
+      case 'id':
+        console.log('id');
+        break
+      case 'name':
+        console.log('name');
+        break
+      case 'type':
+        console.log('type');
+        break
+      default:
+        console.log('????');
+        break
+    }
+  }
 }
-
-

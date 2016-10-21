@@ -16,6 +16,15 @@ var PokemonMasterComponent = (function () {
         this.pokemonService = pokemonService;
         this.pokemonTypesService = pokemonTypesService;
     }
+    PokemonMasterComponent.prototype.ngOnInit = function () {
+        this.getPokemon();
+        this.toggleFilter = false;
+        this.searchQuery = '';
+        this.sortID = 1;
+        this.sortName = 0;
+        this.sortType = 0;
+    };
+    ;
     PokemonMasterComponent.prototype.getPokemon = function () {
         var _this = this;
         this.pokemonService.getPokemon().then(function (pokemon) {
@@ -31,12 +40,6 @@ var PokemonMasterComponent = (function () {
             _this.pokemonTypes = pokemonTypes;
         });
     };
-    PokemonMasterComponent.prototype.ngOnInit = function () {
-        this.getPokemon();
-        this.toggleFilter = true;
-        this.searchQuery = '';
-    };
-    ;
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
         this.selectedPokemon = pokemon;
     };
@@ -82,6 +85,22 @@ var PokemonMasterComponent = (function () {
             });
         }
         this.typeFilterEvent(this.typesFilter);
+    };
+    PokemonMasterComponent.prototype.performSortToggle = function (field) {
+        switch (field) {
+            case 'id':
+                console.log('id');
+                break;
+            case 'name':
+                console.log('name');
+                break;
+            case 'type':
+                console.log('type');
+                break;
+            default:
+                console.log('????');
+                break;
+        }
     };
     PokemonMasterComponent = __decorate([
         core_1.Component({

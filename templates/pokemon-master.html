@@ -13,11 +13,10 @@
 </div>
 
 <header>
-  <div class="row">
-    <div class="twelve columns">
-      <h4>Sort</h4>
-    </div>
-  </div>
+  <span class="icon">&#x21c5;</span>
+  <button (click)="performSortToggle('id')">ID<div class="arrow">&#x2193;</div></button>
+  <button (click)="performSortToggle('name')">Name<div class="arrow">&#x2794;</div></button>
+  <button (click)="performSortToggle('type')">Type<div class="arrow">&#x2191;</div></button>
 </header>
 
 <section
