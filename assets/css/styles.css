@@ -8,6 +8,18 @@ header {
   position: fixed;
   z-index: 1;
   width: 100%; }
+  header #closeModal {
+    position: fixed;
+    border-radius: 0.8rem;
+    width: 9rem;
+    z-index: 99;
+    right: 0.5rem;
+    transform: translateX(120%);
+    background: darkslategrey;
+    color: white;
+    font-size: 1.5rem; }
+    header #closeModal.active {
+      transform: translateX(0); }
   header button {
     transition: transform 0.1s ease;
     margin-right: 0.8rem;
@@ -95,6 +107,7 @@ header {
   margin-top: 7rem;
   margin-left: 2rem;
   width: 27rem;
+  min-height: 40rem;
   transition: transform 0.2s;
   max-width: 70%;
   right: 2rem;
@@ -102,15 +115,6 @@ header {
   border: 5px solid darkslategrey;
   background: darkslategrey;
   padding: 1.5rem; }
-  #selectedPokemon #closeModal {
-    position: fixed;
-    border-radius: 0.8rem;
-    top: -6.5rem;
-    z-index: 99;
-    right: 0;
-    background: darkslategrey;
-    color: white;
-    font-size: 1.5rem; }
   #selectedPokemon.active {
     transform: translateX(0); }
   #selectedPokemon .hp {

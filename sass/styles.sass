@@ -8,6 +8,18 @@ header
   position: fixed
   z-index: 1
   width: 100%
+  #closeModal
+    position: fixed
+    border-radius: 0.8rem
+    width: 9rem
+    z-index: 99
+    right: 0.5rem
+    transform: translateX(120%)
+    background: darkslategrey
+    color: white
+    font-size: 1.5rem
+    &.active
+      transform: translateX(0)
 
   button
     transition: transform 0.1s ease
@@ -107,6 +119,7 @@ header
   margin-top: 7rem
   margin-left: 2rem
   width: 27rem
+  min-height: 40rem
   transition: transform 0.2s
   max-width: 70%
   right: 2rem
@@ -114,17 +127,6 @@ header
   border: 5px solid darkslategrey
   background: darkslategrey
   padding: 1.5rem
-  #closeModal
-    position: fixed
-    border-radius: 0.8rem
-    top: -6.5rem
-    z-index: 99
-    right: 0
-    background: darkslategrey
-    color: white
-    font-size: 1.5rem
-    
-
   &.active
     transform: translateX(0)
 
