@@ -20,9 +20,9 @@ export class PokemonMasterComponent {
   selectedPokemonTypes: PokemonType[];
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
-  sortID: number;
-  sortName: number;
-  sortType: number;
+  sortID: string;
+  sortName: string;
+  sortType: string;
 
   filteredPokemon: Pokemon[];
   
@@ -35,9 +35,9 @@ export class PokemonMasterComponent {
     this.getPokemon();
     this.toggleFilter = false;
     this.searchQuery = '';
-    this.sortID = 1;
-    this.sortName = 0;
-    this.sortType = 0;
+    this.sortID = 'asc';
+    this.sortName = 'none';
+    this.sortType = 'none';
   };
 
   getPokemon(): void {
@@ -107,12 +107,33 @@ export class PokemonMasterComponent {
     switch ( field ) {
       case 'id':
         console.log('id');
+        this.toggleSortField('sortID');
         break
       case 'name':
+        this.toggleSortField('sortName');
         console.log('name');
         break
       case 'type':
+        this.toggleSortField('sortType');
         console.log('type');
+        break
+      default:
+        console.log('????');
+        break
+    }
+  }
+
+  toggleSortField(field: string): void {
+    console.log(this[field]);
+    switch ( this[field] ) {
+      case 'asc':
+        this[field] = 'dsc'; 
+        break
+      case 'dsc':
+        this[field] = 'none'; 
+        break
+      case 'none':
+        this[field] = 'asc'; 
         break
       default:
         console.log('????');

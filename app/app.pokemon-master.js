@@ -20,9 +20,9 @@ var PokemonMasterComponent = (function () {
         this.getPokemon();
         this.toggleFilter = false;
         this.searchQuery = '';
-        this.sortID = 1;
-        this.sortName = 0;
-        this.sortType = 0;
+        this.sortID = 'asc';
+        this.sortName = 'none';
+        this.sortType = 'none';
     };
     ;
     PokemonMasterComponent.prototype.getPokemon = function () {
@@ -90,12 +90,32 @@ var PokemonMasterComponent = (function () {
         switch (field) {
             case 'id':
                 console.log('id');
+                this.toggleSortField('sortID');
                 break;
             case 'name':
+                this.toggleSortField('sortName');
                 console.log('name');
                 break;
             case 'type':
+                this.toggleSortField('sortType');
                 console.log('type');
+                break;
+            default:
+                console.log('????');
+                break;
+        }
+    };
+    PokemonMasterComponent.prototype.toggleSortField = function (field) {
+        console.log(this[field]);
+        switch (this[field]) {
+            case 'asc':
+                this[field] = 'dsc';
+                break;
+            case 'dsc':
+                this[field] = 'none';
+                break;
+            case 'none':
+                this[field] = 'asc';
                 break;
             default:
                 console.log('????');
