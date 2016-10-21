@@ -55,7 +55,7 @@ header {
     position: relative;
     background: whitesmoke;
     margin: 0.5rem;
-    border: 1px solid black;
+    border: 1px solid #222;
     display: inline-block;
     text-align: center;
     max-width: 33%;
@@ -74,8 +74,9 @@ header {
       box-shadow: 3px 3px 5px 6px #ccc;
       cursor: pointer; }
     #pokemon-list .pokemon.selected {
-      transform: scale(1);
-      margin: 0rem; }
+      transform: scale(1.3);
+      border: 2px solid #222;
+      z-index: 1; }
     #pokemon-list .pokemon .name {
       font-size: 1.2rem; }
 
