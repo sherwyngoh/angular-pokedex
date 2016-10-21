@@ -22,7 +22,7 @@ var PokemonMasterComponent = (function () {
             _this.pokemon = pokemon;
             _this.filteredPokemon = pokemon;
             _this.getPokemonTypes();
-            // this.selectedPokemon = pokemon[0];
+            _this.selectedPokemon = pokemon[0];
         });
     };
     ;
@@ -68,8 +68,7 @@ var PokemonMasterComponent = (function () {
                 }
             }
         }
-        pokemon.type = result;
-        return pokemon;
+        return result;
     };
     PokemonMasterComponent.prototype.updateSearchQuery = function () {
         var _this = this;

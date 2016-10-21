@@ -17,10 +17,14 @@ var PokemonDetailComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', pokemon_1.Pokemon)
     ], PokemonDetailComponent.prototype, "pokemon", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], PokemonDetailComponent.prototype, "pokemonTypes", void 0);
     PokemonDetailComponent = __decorate([
         core_1.Component({
             selector: 'pokemon-detail',
-            templateUrl: 'templates/pokemon.html'
+            templateUrl: 'templates/pokemon-detail.html'
         }), 
         __metadata('design:paramtypes', [])
     ], PokemonDetailComponent);

@@ -1,0 +1,67 @@
+<div  id="selectedPokemon" [class.active]="pokemon">
+  <div *ngIf="pokemon">
+    <button (click)="pokemon = undefined" id="closeModal">x</button>
+    <div class="id">
+      ID: {{pokemon.id}}
+    </div>
+    <h5>{{pokemon.ename}} <small>({{pokemon.jname}})</small></h5>
+    <img src="assets/images/spr/{{pokemon.id}}MS.png" alt="" class="mini-icon">
+    <div class="inner-container">
+      <div class="img-wrapper">
+        <img src="assets/images/thm/{{pokemon.id}}{{pokemon.flatName ? pokemon.flatName : pokemon.ename}}.png" alt="">
+      </div>
+      <div class="pokemon-types-wrapper">
+        <div class="hp">
+          <span>HP</span>
+          {{pokemon.base.HP}}
+        </div>
+        <div class="pokemon-type {{item}}" *ngFor="let item of pokemonTypes" >{{item}}</div>
+      </div>
+
+      <div class="base">
+        <table>
+          <tr>
+            <th>
+              Attack
+            </th>
+            <td>
+              {{pokemon.base.Attack}}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Defense
+            </th>
+            <td>
+              {{pokemon.base.Defense}}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              SpAtk
+            </th>
+            <td>
+              {{pokemon.base.SpAtk}}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              SpDef
+            </th>
+            <td>
+              {{pokemon.base.SpDef}}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Speed
+            </th>
+            <td>
+              {{pokemon.base.Speed}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

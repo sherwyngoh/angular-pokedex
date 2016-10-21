@@ -33,7 +33,7 @@ export class PokemonMasterComponent {
       this.pokemon = pokemon;
       this.filteredPokemon = pokemon;
       this.getPokemonTypes();
-      // this.selectedPokemon = pokemon[0];
+      this.selectedPokemon = pokemon[0];
     });
   };
   
@@ -69,7 +69,7 @@ export class PokemonMasterComponent {
     })
   }
 
-  getTypes(pokemon: Pokemon): Pokemon {
+  getTypes(pokemon: Pokemon): string[] {
     let result = [];
     for ( let t in pokemon.type ) {
       let pt = pokemon.type[t]
@@ -80,8 +80,7 @@ export class PokemonMasterComponent {
         }
       }
     }
-    pokemon.type = result
-    return pokemon
+    return result;
   }
 
   updateSearchQuery(): void {

@@ -3,9 +3,11 @@ import { Pokemon } from './pokemon'
 
 @Component({
   selector: 'pokemon-detail',
-  templateUrl: 'templates/pokemon.html'
+  templateUrl: 'templates/pokemon-detail.html'
 })
 
 export class PokemonDetailComponent {
   @Input() pokemon: Pokemon
+  @Input() pokemonTypes?: string[]
+
 }
