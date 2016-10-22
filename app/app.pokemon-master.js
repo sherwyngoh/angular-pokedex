@@ -34,6 +34,42 @@ var PokemonMasterComponent = (function () {
         });
     };
     ;
+    PokemonMasterComponent.prototype.sort = function (sortby, direction) {
+        var _this = this;
+        this.filteredPokemon = this.pokemon.sort(function (a, b) {
+            return _this.sortByID(a, b, direction);
+        });
+    };
+    PokemonMasterComponent.prototype.sortByName = function (a, b, direction) {
+        switch (direction) {
+            case 'asc':
+                return (a.ename > b.ename) ? 1 : -1;
+            case 'dsc':
+                return (a.ename > b.ename) ? -1 : 1;
+            default:
+                return 0;
+        }
+    };
+    PokemonMasterComponent.prototype.sortByType = function (a, b, direction) {
+        switch (direction) {
+            case 'asc':
+                return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1;
+            case 'dsc':
+                return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1;
+            default:
+                return 0;
+        }
+    };
+    PokemonMasterComponent.prototype.sortByID = function (a, b, direction) {
+        switch (direction) {
+            case 'asc':
+                return (a.id > b.id) ? 1 : -1;
+            case 'dsc':
+                return (a.id > b.id) ? -1 : 1;
+            default:
+                return 0;
+        }
+    };
     PokemonMasterComponent.prototype.getPokemonTypes = function () {
         var _this = this;
         this.pokemonTypesService.getPokemonTypes().then(function (pokemonTypes) {
@@ -91,6 +127,7 @@ var PokemonMasterComponent = (function () {
             case 'id':
                 console.log('id');
                 this.toggleSortField('sortID');
+                this.sort('id', this.sortID);
                 break;
             case 'name':
                 this.toggleSortField('sortName');
@@ -112,7 +149,7 @@ var PokemonMasterComponent = (function () {
                 this[field] = 'dsc';
                 break;
             case 'dsc':
-                this[field] = 'none';
+                this[field] = field === 'sortID' ? 'asc' : 'none';
                 break;
             case 'none':
                 this[field] = 'asc';

@@ -1,5 +1,7 @@
 html, body
   height: 100%
+  background: -webkit-linear-gradient(to left, #ffd89b , #19547b)
+  background: linear-gradient(to left, #ffd89b , #19547b)                  
 
 header
   box-shadow: 1px 1px 1px 2px #ccc
@@ -52,10 +54,18 @@ header
   padding-top: 7.5rem
   text-align: center
   padding-bottom: 15rem
+  .host
+    width: 7rem
+    display: inline-block
+    margin: 1rem 2rem
+    &.snorlax
+      float: left
+    &.eevee
+      float: right
 
   .pokemon
-    transition: opacity 0.3s ease, box-shadow 0.1s ease, transform 0.2s ease
-    transform: scale(1) translate(0,0)
+    transition: opacity 0.3s ease, transform 0.1s ease
+    transform: scale(1) 
     padding: 1rem
     position: relative
     background: whitesmoke
@@ -65,9 +75,6 @@ header
     text-align: center
     max-width: 33%
     border-radius: 4px
-    -moz-box-shadow:    3px 3px 5px 6px white
-    -webkit-box-shadow: 3px 3px 5px 6px white
-    box-shadow:         3px 3px 5px 6px white
 
     &.fade
       opacity: 0.8
@@ -77,14 +84,13 @@ header
       margin-top: 5%
 
     &:hover, &:active
-      -moz-box-shadow:    3px 3px 5px 6px #ccc
-      -webkit-box-shadow: 3px 3px 5px 6px #ccc
-      box-shadow:         3px 3px 5px 6px #ccc
+      transform: scale(1.3)
       cursor: pointer
+      z-index: 1
 
     &.selected
-      transform: scale(1.3)
-      border: 2px solid #222
+      transform: scale(1.5)
+      border: 3px solid #222
       z-index: 1
 
     .name
@@ -114,7 +120,7 @@ header
 
 #selectedPokemon
   position: fixed
-  transform: translateX(120%) 
+  transform: translateX(120%) perspective(1px) translateZ(0)
   border-radius: 20px
   z-index: 2
   margin-top: 7rem
@@ -128,8 +134,24 @@ header
   border: 5px solid darkslategrey
   background: darkslategrey
   padding: 1.5rem
+
   &.active
     transform: translateX(0)
+    &:before
+      position: absolute
+      content: ''
+      height: 1.5rem
+      width: 1.5rem
+      bottom: 0
+      right: 0
+      background: white
+      /* IE9 */
+      background: linear-gradient(315deg, white 45%, #aaa 50%, #ccc 56%, white 80%)
+      box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4)
+      -webkit-transition-duration: 0.3s
+      transition-duration: 0.3s
+      -webkit-transition-property: width, height
+      transition-property: width, height
 
   .hp
     position: absolute
@@ -169,7 +191,7 @@ header
       font-size: 1.3rem
       padding: 0.4rem
       &:hover
-        cursor: normal
+        cursor: default
         transform: scale(1)
 
   .mini-icon
@@ -192,11 +214,22 @@ header
       margin: 0 auto
       display: block
       position: absolute
-      height: 11rem
+      height: 10rem
       top: 50%
       left: 50%
-      transform: translate(-50%, -50%)
+      transform: translate(-250%, -50%) scale(1)
       background: whitesmoke
+      animation: hover 2.5s infinite alternate
+
+    @keyframes hover
+      0%
+        transform: translate(-50%, -50%)
+      25%
+        transform: translate(-50%, -51.5%)
+      75%
+        transform: translate(-50%, -48.5%)
+      100%
+        transform: translate(-50%, -50%)
   
   .inner-container
     background: whitesmoke

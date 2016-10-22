@@ -24,7 +24,12 @@
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
-  <div 
+  <div class="row">
+    <div id="speech-bubble"></div>
+    <img src="assets/images/icons/snorlax.svg" alt="" class="host snorlax">
+    <img src="assets/images/icons/eevee.svg" alt="" class="host eevee">
+  </div>
+  <div
   class="pokemon" 
   *ngFor="let p of filteredPokemon"
   [class.selected]="selectedPokemon === p"

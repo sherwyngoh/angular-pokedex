@@ -45,8 +45,47 @@ export class PokemonMasterComponent {
       this.pokemon = pokemon;
       this.filteredPokemon = pokemon;
       this.getPokemonTypes();
-    });
+    })
   };
+
+  sort(sortby: string, direction: string):void {
+    this.filteredPokemon = this.pokemon.sort( ( a, b ) => {
+      return this.sortByID(a, b, direction);
+    });
+  }
+
+  sortByName( a, b , direction: string): number {
+      switch (direction) {
+        case 'asc':
+          return (a.ename > b.ename) ? 1 : -1 
+        case 'dsc':
+          return (a.ename > b.ename) ? -1 : 1 
+        default:
+          return 0
+      }    
+  }
+
+  sortByType( a, b , direction: string): number {
+      switch (direction) {
+        case 'asc':
+          return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
+        case 'dsc':
+          return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
+        default:
+          return 0
+      }    
+  }
+
+  sortByID( a, b , direction: string): number {
+      switch (direction) {
+        case 'asc':
+          return (a.id > b.id) ? 1 : -1 
+        case 'dsc':
+          return (a.id > b.id) ? -1 : 1 
+        default:
+          return 0
+      }
+  }
   
   getPokemonTypes(): void {
     this.pokemonTypesService.getPokemonTypes().then((pokemonTypes)=> {
@@ -108,6 +147,7 @@ export class PokemonMasterComponent {
       case 'id':
         console.log('id');
         this.toggleSortField('sortID');
+        this.sort('id', this.sortID);
         break
       case 'name':
         this.toggleSortField('sortName');
@@ -130,7 +170,7 @@ export class PokemonMasterComponent {
         this[field] = 'dsc'; 
         break
       case 'dsc':
-        this[field] = 'none'; 
+        this[field] = field === 'sortID' ? 'asc' : 'none'; 
         break
       case 'none':
         this[field] = 'asc'; 

@@ -3,7 +3,7 @@ var mock_pokemon_type_1 = require('./mock-pokemon-type');
 var Pokemon = (function () {
     function Pokemon() {
     }
-    Pokemon.prototype.getTypes = function () {
+    Pokemon.prototype.getTypes = function (pokemon) {
         var cname = this.type;
         var result = [];
         for (var _i = 0, cname_1 = cname; _i < cname_1.length; _i++) {
@@ -17,6 +17,9 @@ var Pokemon = (function () {
             }
         }
         return result;
+    };
+    Pokemon.prototype.getTypeScore = function (pokemon) {
+        var types = this.getTypes(pokemon);
     };
     return Pokemon;
 }());
