@@ -34,10 +34,6 @@ header
       font-size: 1rem
       padding: 0rem 0.5rem
 
-  .icon
-    font-size: 2rem
-    margin-right: 2rem
-
   .arrow
     opacity: 1
     transform: translate(0, 0)
@@ -89,7 +85,6 @@ header
       z-index: 1
 
     &.selected
-      transform: scale(1.5)
       border: 3px solid #222
       z-index: 1
 
@@ -349,40 +344,31 @@ header
     transform: scale(1.1) translateX(0)
 
 
-$footer-large-height: 5rem
-
-footer
-  background: white
-  border-top: 1px solid #222
-  height: $footer-large-height
-  z-index: 99
-  width: 100%
-  bottom: 0
-  position: fixed
-  transition: height 0.3s ease
-  @media all and (max-width: 800px)
-    height: $footer-large-height - 1rem
-
-  .footer-icon
-    height: $footer-large-height - 1rem
-    margin: 0.5rem 2rem
-    float: left
-    transition: height 0.3s ease
-    @media all and (max-width: 800px)
-      height: $footer-large-height - 2rem
+$search-query-height: 4rem
 
 #searchQuery
-  height: $footer-large-height
-  line-height: $footer-large-height
+  height: $search-query-height
+  line-height: $search-query-height
   font-size: 2.2rem
-  width: 40%
+  width: calc(100% - 5rem)
+  max-width: 80%
   min-width: 15rem
+  min-height: 35px
   border: none
   float: left
   @media all and (max-width: 800px)
-    height: $footer-large-height  - 1rem
-    line-height: $footer-large-height - 1rem
+    height: $search-query-height  - 1rem
+    line-height: $search-query-height - 1rem
     font-size: 1.5rem
+
+.icon
+  height: $search-query-height - 1.7rem
+  margin-right: 2rem
+  float: left
+  font-size: 2.5rem
+  &.search
+    margin-top: 0.5rem
+    
 
 .pokeball 
   border: none
