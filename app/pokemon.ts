@@ -26,7 +26,7 @@ export class Pokemon {
   };
   type: string[];
 
-  getTypes(pokemon: Pokemon) {
+  getTypes?(pokemon: Pokemon) {
     const cname = this.type
     let result = []
     for(let type of cname) {
@@ -40,7 +40,7 @@ export class Pokemon {
     return result
   }
 
-  getTypeScore(pokemon: Pokemon) {
+  getTypeScore?(pokemon: Pokemon) {
     const types = this.getTypes(pokemon);
 
   }

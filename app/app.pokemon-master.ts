@@ -13,16 +13,16 @@ import { PokemonTypesService } from './pokemon-types.service';
 
 export class PokemonMasterComponent {
   typesFilter: string[];
-  searchQuery: string;
   nameIdFilter: string;
-  toggleFilter: boolean;
   selectedPokemon: Pokemon;
   selectedPokemonTypes: PokemonType[];
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
-  sortID: string;
-  sortName: string;
-  sortType: string;
+  toggleFilter = false;
+  searchQuery = '';
+  sortID = 'asc';
+  sortName = '';
+  sortType = '';
 
   filteredPokemon: Pokemon[];
   
@@ -33,11 +33,6 @@ export class PokemonMasterComponent {
 
   ngOnInit(): void {
     this.getPokemon();
-    this.toggleFilter = false;
-    this.searchQuery = '';
-    this.sortID = 'asc';
-    this.sortName = 'none';
-    this.sortType = 'none';
   };
 
   getPokemon(): void {
@@ -48,14 +43,14 @@ export class PokemonMasterComponent {
     })
   };
 
-  sort(sortby: string, direction: string):void {
-    this.filteredPokemon = this.pokemon.sort( ( a, b ) => {
-      return this.sortByID(a, b, direction);
+  sort(recentToggle: string):void {
+    this.filteredPokemon = this.filteredPokemon.sort( ( a, b ) => {
+      return this[`compareBy` + recentToggle]( a, b );
     });
   }
 
-  sortByName( a, b , direction: string): number {
-      switch (direction) {
+  compareByName( a, b): number {
+      switch (this.sortName) {
         case 'asc':
           return (a.ename > b.ename) ? 1 : -1 
         case 'dsc':
@@ -65,19 +60,8 @@ export class PokemonMasterComponent {
       }    
   }
 
-  sortByType( a, b , direction: string): number {
-      switch (direction) {
-        case 'asc':
-          return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
-        case 'dsc':
-          return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
-        default:
-          return 0
-      }    
-  }
-
-  sortByID( a, b , direction: string): number {
-      switch (direction) {
+  compareByID( a, b): number {
+      switch (this.sortID) {
         case 'asc':
           return (a.id > b.id) ? 1 : -1 
         case 'dsc':
@@ -86,6 +70,17 @@ export class PokemonMasterComponent {
           return 0
       }
   }
+
+  // compareByType( a, b): number {
+  //     switch (this.sortName) {
+  //       case 'asc':
+  //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
+  //       case 'dsc':
+  //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
+  //       default:
+  //         return 0
+  //     }    
+  // }
   
   getPokemonTypes(): void {
     this.pokemonTypesService.getPokemonTypes().then((pokemonTypes)=> {
@@ -145,17 +140,15 @@ export class PokemonMasterComponent {
   performSortToggle(field: string): void {
     switch ( field ) {
       case 'id':
-        console.log('id');
         this.toggleSortField('sortID');
-        this.sort('id', this.sortID);
+        this.sort('ID');
         break
       case 'name':
         this.toggleSortField('sortName');
-        console.log('name');
+        this.sort('Name');
         break
       case 'type':
         this.toggleSortField('sortType');
-        console.log('type');
         break
       default:
         console.log('????');
@@ -164,15 +157,14 @@ export class PokemonMasterComponent {
   }
 
   toggleSortField(field: string): void {
-    console.log(this[field]);
     switch ( this[field] ) {
       case 'asc':
         this[field] = 'dsc'; 
         break
       case 'dsc':
-        this[field] = field === 'sortID' ? 'asc' : 'none'; 
+        this[field] = ''; 
         break
-      case 'none':
+      case '':
         this[field] = 'asc'; 
         break
       default:

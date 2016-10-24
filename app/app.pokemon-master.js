@@ -15,14 +15,14 @@ var PokemonMasterComponent = (function () {
     function PokemonMasterComponent(pokemonService, pokemonTypesService) {
         this.pokemonService = pokemonService;
         this.pokemonTypesService = pokemonTypesService;
-    }
-    PokemonMasterComponent.prototype.ngOnInit = function () {
-        this.getPokemon();
         this.toggleFilter = false;
         this.searchQuery = '';
         this.sortID = 'asc';
-        this.sortName = 'none';
-        this.sortType = 'none';
+        this.sortName = '';
+        this.sortType = '';
+    }
+    PokemonMasterComponent.prototype.ngOnInit = function () {
+        this.getPokemon();
     };
     ;
     PokemonMasterComponent.prototype.getPokemon = function () {
@@ -34,14 +34,14 @@ var PokemonMasterComponent = (function () {
         });
     };
     ;
-    PokemonMasterComponent.prototype.sort = function (sortby, direction) {
+    PokemonMasterComponent.prototype.sort = function (recentToggle) {
         var _this = this;
-        this.filteredPokemon = this.pokemon.sort(function (a, b) {
-            return _this.sortByID(a, b, direction);
+        this.filteredPokemon = this.filteredPokemon.sort(function (a, b) {
+            return _this["compareBy" + recentToggle](a, b);
         });
     };
-    PokemonMasterComponent.prototype.sortByName = function (a, b, direction) {
-        switch (direction) {
+    PokemonMasterComponent.prototype.compareByName = function (a, b) {
+        switch (this.sortName) {
             case 'asc':
                 return (a.ename > b.ename) ? 1 : -1;
             case 'dsc':
@@ -50,18 +50,8 @@ var PokemonMasterComponent = (function () {
                 return 0;
         }
     };
-    PokemonMasterComponent.prototype.sortByType = function (a, b, direction) {
-        switch (direction) {
-            case 'asc':
-                return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1;
-            case 'dsc':
-                return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1;
-            default:
-                return 0;
-        }
-    };
-    PokemonMasterComponent.prototype.sortByID = function (a, b, direction) {
-        switch (direction) {
+    PokemonMasterComponent.prototype.compareByID = function (a, b) {
+        switch (this.sortID) {
             case 'asc':
                 return (a.id > b.id) ? 1 : -1;
             case 'dsc':
@@ -70,6 +60,16 @@ var PokemonMasterComponent = (function () {
                 return 0;
         }
     };
+    // compareByType( a, b): number {
+    //     switch (this.sortName) {
+    //       case 'asc':
+    //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
+    //       case 'dsc':
+    //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
+    //       default:
+    //         return 0
+    //     }    
+    // }
     PokemonMasterComponent.prototype.getPokemonTypes = function () {
         var _this = this;
         this.pokemonTypesService.getPokemonTypes().then(function (pokemonTypes) {
@@ -125,17 +125,15 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent.prototype.performSortToggle = function (field) {
         switch (field) {
             case 'id':
-                console.log('id');
                 this.toggleSortField('sortID');
-                this.sort('id', this.sortID);
+                this.sort('ID');
                 break;
             case 'name':
                 this.toggleSortField('sortName');
-                console.log('name');
+                this.sort('Name');
                 break;
             case 'type':
                 this.toggleSortField('sortType');
-                console.log('type');
                 break;
             default:
                 console.log('????');
@@ -143,15 +141,14 @@ var PokemonMasterComponent = (function () {
         }
     };
     PokemonMasterComponent.prototype.toggleSortField = function (field) {
-        console.log(this[field]);
         switch (this[field]) {
             case 'asc':
                 this[field] = 'dsc';
                 break;
             case 'dsc':
-                this[field] = field === 'sortID' ? 'asc' : 'none';
+                this[field] = '';
                 break;
-            case 'none':
+            case '':
                 this[field] = 'asc';
                 break;
             default:
