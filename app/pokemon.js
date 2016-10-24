@@ -2,7 +2,6 @@
 var mock_pokemon_type_1 = require('./mock-pokemon-type');
 var Pokemon = (function () {
     function Pokemon() {
-        this.typesInEnglish = [];
     }
     Pokemon.prototype.getTypes = function (pokemon) {
         var cname = this.type;

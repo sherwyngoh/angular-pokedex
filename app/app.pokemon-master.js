@@ -107,12 +107,18 @@ var PokemonMasterComponent = (function () {
             });
         }).then(function () {
             for (var ctype in r) {
-                for (var i in _this.pokemonTypes) {
+                var _loop_1 = function(i) {
                     var type = _this.pokemonTypes[i];
                     if (type.cname == ctype) {
                         r[type.ename] = r[type.cname];
+                        r[type.ename].forEach(function (pokemon) {
+                            pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename];
+                        });
                         delete r[type.cname];
                     }
+                };
+                for (var i in _this.pokemonTypes) {
+                    _loop_1(i);
                 }
             }
             _this.pokemonByTypes = r;
@@ -125,17 +131,19 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent.prototype.typeFilterEvent = function (value) {
         var _this = this;
         this.typesFilter = value.value.map(function (type) {
-            return type.cname;
+            return type.ename;
         });
-        this.filteredPokemon = this.pokemon.filter(function (pokemon) {
-            var remains = true;
-            for (var i in pokemon.type) {
-                if (_this.typesFilter.indexOf(pokemon.type[i]) != -1) {
-                    remains = false;
+        if (this.sortType === '') {
+            this.filteredPokemon = this.pokemon.filter(function (pokemon) {
+                var remains = true;
+                for (var i in pokemon.typesInEnglish) {
+                    if (_this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1) {
+                        remains = false;
+                    }
                 }
-            }
-            return remains;
-        });
+                return remains;
+            });
+        }
     };
     PokemonMasterComponent.prototype.getTypes = function (pokemon) {
         var result = [];

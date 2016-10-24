@@ -33,7 +33,7 @@
   [class.selected]="selectedPokemon"
   >
   <div class="row">
-    <div id="speech-bubble"></div>
+    <div id="speech-bubble">{{typesFilter}}</div>
     <img src="assets/images/icons/snorlax.svg" alt="" class="host snorlax">
     <img src="assets/images/icons/eevee.svg" alt="" class="host eevee">
   </div>
@@ -53,7 +53,7 @@
     <div *ngFor="let type of pokemonTypes">
       <div
       class="pokemon-type-row {{type.ename}}"
-      [class.filteredOut]="typesFilter.indexOf(type.ename) != -1">
+      *ngIf="typesFilter.indexOf(type.ename) === -1">
         <h3>{{type.ename}} ({{type.jname}})</h3>
         <div
           class="pokemon" 

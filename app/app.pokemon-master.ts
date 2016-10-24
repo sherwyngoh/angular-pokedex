@@ -124,8 +124,11 @@ export class PokemonMasterComponent {
           const type = this.pokemonTypes[i];
           if (type.cname == ctype) {
             r[type.ename] = r[type.cname]
+            r[type.ename].forEach( (pokemon) => {
+                pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename]
+            })
             delete r[type.cname]
-          } 
+          }
         }
       }
       this.pokemonByTypes = r
@@ -139,18 +142,21 @@ export class PokemonMasterComponent {
   
   typeFilterEvent(value): void {
     this.typesFilter = value.value.map((type) => {
-      return type.cname;
+      return type.ename;
     });
 
-    this.filteredPokemon = this.pokemon.filter((pokemon) => {
-      let remains = true;
-      for (let i in pokemon.type) {
-        if ( this.typesFilter.indexOf(pokemon.type[i]) != -1 ) {
-          remains = false
+
+    if ( this.sortType === '' ) {
+      this.filteredPokemon = this.pokemon.filter( (pokemon) => {
+        let remains = true;
+        for (let i in pokemon.typesInEnglish) {
+          if ( this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1 ) {
+            remains = false
+          }
         }
-      }
-      return remains
-    })
+        return remains
+      })
+    }
   }
 
   getTypes(pokemon: Pokemon): string[] {

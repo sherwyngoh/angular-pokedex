@@ -25,7 +25,7 @@ export class Pokemon {
     pre_evolution?: number[];
   };
   type: string[];
-  typesInEnglish = [];
+  typesInEnglish: string[];
 
   getTypes?(pokemon: Pokemon) {
     const cname = this.type

@@ -312,14 +312,10 @@ header {
     border: 1px solid #D685AD; }
 
 .pokemon-type-row {
-  padding: 2rem 0;
-  transition: height 0.2s ease;
-  height: auto; }
+  padding: 2rem 0; }
   .pokemon-type-row h3 {
     color: white;
     letter-spacing: 1px; }
-  .pokemon-type-row.filteredOut {
-    height: 0; }
   .pokemon-type-row.Grass {
     background: #7ac74c;
     border: 2px solid #61ab35; }
