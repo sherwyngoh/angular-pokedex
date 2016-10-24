@@ -108,7 +108,6 @@ export class PokemonMasterComponent {
       }
       this.pokemonByTypes = r
     })
-
   }
 
   

@@ -37,21 +37,44 @@
     <img src="assets/images/icons/snorlax.svg" alt="" class="host snorlax">
     <img src="assets/images/icons/eevee.svg" alt="" class="host eevee">
   </div>
-  <div
-  class="pokemon" 
-  *ngFor="let p of filteredPokemon"
-  [class.selected]="selectedPokemon === p"
-  (click)="onSelect(p)"
-  [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" >
-    <img src="assets/images/spr/{{p.id}}MS.png" alt="">
-    <div class="name">{{p.ename}}</div>
-  </div>
 
-  <div class="row">
+  <div class="pokemons" [class.show]="sortType === ''">
+    <div
+    class="pokemon" 
+    *ngFor="let p of filteredPokemon"
+    [class.selected]="selectedPokemon === p"
+    (click)="onSelect(p)"
+    [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" >
+      <img src="assets/images/spr/{{p.id}}MS.png" alt="">
+      <div class="name">{{p.ename}}</div>
+    </div>
+  </div> 
+
+  <div class="pokemons type" [class.show]="sortType != ''">
+    <div *ngFor="let type of pokemonTypes">
+      <div
+      class="pokemon-type-row {{type.ename}}"
+      >
+        <h3>{{type.ename}} ({{type.jname}})</h3>
+        <div
+          class="pokemon" 
+          *ngFor="let p of pokemonByTypes[type.ename]"  
+          [class.selected]="selectedPokemon === p"
+          (click)="onSelect(p)"
+          [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" >
+          <img src="assets/images/spr/{{p.id}}MS.png" alt="">
+          <div class="name">{{p.ename}}</div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+  <!--<div class="row">
     <div id="speech-bubble"></div>
     <img src="assets/images/icons/jigglypuff.svg" alt="" class="host snorlax">
     <img src="assets/images/icons/psyduck.svg" alt="" class="host eevee">
-  </div>
+  </div>-->
 
 </section>
 
