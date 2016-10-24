@@ -72,8 +72,30 @@ var PokemonMasterComponent = (function () {
     // }
     PokemonMasterComponent.prototype.getPokemonTypes = function () {
         var _this = this;
+        var r = {};
         this.pokemonTypesService.getPokemonTypes().then(function (pokemonTypes) {
             _this.pokemonTypes = pokemonTypes;
+            _this.pokemon.forEach(function (pokemon) {
+                pokemon.type.forEach(function (type) {
+                    if (r[type]) {
+                        r[type].push(pokemon);
+                    }
+                    else {
+                        r[type] = [pokemon];
+                    }
+                });
+            });
+        }).then(function () {
+            for (var ctype in r) {
+                for (var i in _this.pokemonTypes) {
+                    var type = _this.pokemonTypes[i];
+                    if (type.cname == ctype) {
+                        r[type.ename] = r[type.cname];
+                        delete r[type.cname];
+                    }
+                }
+            }
+            _this.pokemonByTypes = r;
         });
     };
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {

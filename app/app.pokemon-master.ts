@@ -18,6 +18,7 @@ export class PokemonMasterComponent {
   selectedPokemonTypes: PokemonType[];
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
+  pokemonByTypes: any;
   toggleFilter = false;
   searchQuery = '';
   sortID = 'asc';
@@ -83,9 +84,31 @@ export class PokemonMasterComponent {
   // }
   
   getPokemonTypes(): void {
-    this.pokemonTypesService.getPokemonTypes().then((pokemonTypes)=> {
+    let r = {};
+    this.pokemonTypesService.getPokemonTypes().then( (pokemonTypes) => {
       this.pokemonTypes = pokemonTypes;
+      this.pokemon.forEach( (pokemon) => {
+        pokemon.type.forEach( (type) => {
+          if (r[type]) {
+            r[type].push(pokemon)
+          } else {
+            r[type] = [pokemon]
+          }
+        })
+      })
+    }).then( () => {
+      for (let ctype in r) {
+        for (let i in this.pokemonTypes) {
+          const type = this.pokemonTypes[i];
+          if (type.cname == ctype) {
+            r[type.ename] = r[type.cname]
+            delete r[type.cname]
+          } 
+        }
+      }
+      this.pokemonByTypes = r
     })
+
   }
 
   
