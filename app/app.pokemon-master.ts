@@ -45,12 +45,32 @@ export class PokemonMasterComponent {
   };
 
   sort(recentToggle: string):void {
+    if (this.sortType === '') {
+      this.sortForFiltered(recentToggle);
+    } else {
+      this.sortForFilteredTypes();
+    }
+  }
+
+  sortForFiltered(recentToggle: string) {
     this.filteredPokemon = this.filteredPokemon.sort( ( a, b ) => {
       return this[`compareBy` + recentToggle]( a, b );
     });
   }
 
-  compareByName( a, b): number {
+  sortForFilteredTypes() {
+    this.pokemonTypes = this.pokemonTypes.sort( ( a, b ) => {
+      return this.compareByType( a, b );
+    })
+
+    this.pokemonTypes.forEach( (type) => {
+      this.pokemonByTypes[type.ename] = this.pokemonByTypes[type.ename].sort( ( a, b ) => {
+        return this.compareByName( a, b ) + this.compareByID( a, b )
+      })
+    })
+  }
+
+  compareByName( a, b ): number {
       switch (this.sortName) {
         case 'asc':
           return (a.ename > b.ename) ? 1 : -1 
@@ -61,7 +81,7 @@ export class PokemonMasterComponent {
       }    
   }
 
-  compareByID( a, b): number {
+  compareByID( a, b ): number {
       switch (this.sortID) {
         case 'asc':
           return (a.id > b.id) ? 1 : -1 
@@ -72,16 +92,16 @@ export class PokemonMasterComponent {
       }
   }
 
-  // compareByType( a, b): number {
-  //     switch (this.sortName) {
-  //       case 'asc':
-  //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
-  //       case 'dsc':
-  //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
-  //       default:
-  //         return 0
-  //     }    
-  // }
+  compareByType( a, b): number {
+      switch (this.sortType) {
+        case 'asc':
+          return (a.ename > b.ename) ? 1 : -1 
+        case 'dsc':
+          return (a.ename > b.ename) ? -1 : 1 
+        default:
+          return 0
+      }
+  }
   
   getPokemonTypes(): void {
     let r = {};
@@ -171,6 +191,7 @@ export class PokemonMasterComponent {
         break
       case 'type':
         this.toggleSortField('sortType');
+        this.sort('Type')
         break
       default:
         console.log('????');

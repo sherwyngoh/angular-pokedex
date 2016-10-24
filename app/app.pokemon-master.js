@@ -35,9 +35,28 @@ var PokemonMasterComponent = (function () {
     };
     ;
     PokemonMasterComponent.prototype.sort = function (recentToggle) {
+        if (this.sortType === '') {
+            this.sortForFiltered(recentToggle);
+        }
+        else {
+            this.sortForFilteredTypes();
+        }
+    };
+    PokemonMasterComponent.prototype.sortForFiltered = function (recentToggle) {
         var _this = this;
         this.filteredPokemon = this.filteredPokemon.sort(function (a, b) {
             return _this["compareBy" + recentToggle](a, b);
+        });
+    };
+    PokemonMasterComponent.prototype.sortForFilteredTypes = function () {
+        var _this = this;
+        this.pokemonTypes = this.pokemonTypes.sort(function (a, b) {
+            return _this.compareByType(a, b);
+        });
+        this.pokemonTypes.forEach(function (type) {
+            _this.pokemonByTypes[type.ename] = _this.pokemonByTypes[type.ename].sort(function (a, b) {
+                return _this.compareByName(a, b) + _this.compareByID(a, b);
+            });
         });
     };
     PokemonMasterComponent.prototype.compareByName = function (a, b) {
@@ -60,16 +79,16 @@ var PokemonMasterComponent = (function () {
                 return 0;
         }
     };
-    // compareByType( a, b): number {
-    //     switch (this.sortName) {
-    //       case 'asc':
-    //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? 1 : -1 
-    //       case 'dsc':
-    //         return (this.getTypes(a)[0] > this.getTypes(a)[0]) ? -1 : 1 
-    //       default:
-    //         return 0
-    //     }    
-    // }
+    PokemonMasterComponent.prototype.compareByType = function (a, b) {
+        switch (this.sortType) {
+            case 'asc':
+                return (a.ename > b.ename) ? 1 : -1;
+            case 'dsc':
+                return (a.ename > b.ename) ? -1 : 1;
+            default:
+                return 0;
+        }
+    };
     PokemonMasterComponent.prototype.getPokemonTypes = function () {
         var _this = this;
         var r = {};
@@ -156,6 +175,7 @@ var PokemonMasterComponent = (function () {
                 break;
             case 'type':
                 this.toggleSortField('sortType');
+                this.sort('Type');
                 break;
             default:
                 console.log('????');
