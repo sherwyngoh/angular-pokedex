@@ -19,6 +19,7 @@ export class PokemonMasterComponent {
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
   pokemonByTypes: any;
+  
   toggleFilter = false;
   searchQuery = '';
   sortID = 'asc';
@@ -34,6 +35,7 @@ export class PokemonMasterComponent {
 
   ngOnInit(): void {
     this.getPokemon();
+    this.typesFilter = [];
   };
 
   getPokemon(): void {
@@ -71,36 +73,36 @@ export class PokemonMasterComponent {
   }
 
   compareByName( a, b ): number {
-      switch (this.sortName) {
-        case 'asc':
-          return (a.ename > b.ename) ? 1 : -1 
-        case 'dsc':
-          return (a.ename > b.ename) ? -1 : 1 
-        default:
-          return 0
-      }    
+    switch (this.sortName) {
+      case 'asc':
+        return (a.ename > b.ename) ? 1 : -1 
+      case 'dsc':
+        return (a.ename > b.ename) ? -1 : 1 
+      default:
+        return 0
+    }    
   }
 
   compareByID( a, b ): number {
-      switch (this.sortID) {
-        case 'asc':
-          return (a.id > b.id) ? 1 : -1 
-        case 'dsc':
-          return (a.id > b.id) ? -1 : 1 
-        default:
-          return 0
-      }
+    switch (this.sortID) {
+      case 'asc':
+        return (a.id > b.id) ? 1 : -1 
+      case 'dsc':
+        return (a.id > b.id) ? -1 : 1 
+      default:
+        return 0
+    }
   }
 
   compareByType( a, b): number {
-      switch (this.sortType) {
-        case 'asc':
-          return (a.ename > b.ename) ? 1 : -1 
-        case 'dsc':
-          return (a.ename > b.ename) ? -1 : 1 
-        default:
-          return 0
-      }
+    switch (this.sortType) {
+      case 'asc':
+        return (a.ename > b.ename) ? 1 : -1 
+      case 'dsc':
+        return (a.ename > b.ename) ? -1 : 1 
+      default:
+        return 0
+    }
   }
   
   getPokemonTypes(): void {
@@ -166,10 +168,8 @@ export class PokemonMasterComponent {
   }
 
   updateSearchQuery(): void {
-    console.log(this.searchQuery);
     if ( this.searchQuery != undefined ) {
       this.filteredPokemon = this.pokemon.filter((pokemon) => {
-        console.log(pokemon.ename.toLowerCase().indexOf(this.searchQuery.toLowerCase()))
         if (pokemon.ename.indexOf(this.searchQuery) != -1) {
           return true;
         } 
@@ -194,7 +194,6 @@ export class PokemonMasterComponent {
         this.sort('Type')
         break
       default:
-        console.log('????');
         break
     }
   }
@@ -211,7 +210,6 @@ export class PokemonMasterComponent {
         this[field] = 'asc'; 
         break
       default:
-        console.log('????');
         break
     }
   }

@@ -23,6 +23,7 @@ var PokemonMasterComponent = (function () {
     }
     PokemonMasterComponent.prototype.ngOnInit = function () {
         this.getPokemon();
+        this.typesFilter = [];
     };
     ;
     PokemonMasterComponent.prototype.getPokemon = function () {
@@ -151,10 +152,8 @@ var PokemonMasterComponent = (function () {
     };
     PokemonMasterComponent.prototype.updateSearchQuery = function () {
         var _this = this;
-        console.log(this.searchQuery);
         if (this.searchQuery != undefined) {
             this.filteredPokemon = this.pokemon.filter(function (pokemon) {
-                console.log(pokemon.ename.toLowerCase().indexOf(_this.searchQuery.toLowerCase()));
                 if (pokemon.ename.indexOf(_this.searchQuery) != -1) {
                     return true;
                 }
@@ -178,7 +177,6 @@ var PokemonMasterComponent = (function () {
                 this.sort('Type');
                 break;
             default:
-                console.log('????');
                 break;
         }
     };
@@ -194,7 +192,6 @@ var PokemonMasterComponent = (function () {
                 this[field] = 'asc';
                 break;
             default:
-                console.log('????');
                 break;
         }
     };

@@ -29,14 +29,12 @@ var PokemonTypesMasterComponent = (function () {
     PokemonTypesMasterComponent.prototype.toggle = function (pokemonType) {
         var index = this.selectedPokemonTypes.indexOf(pokemonType);
         if (index === -1) {
-            console.log(this.selectedPokemonTypes);
             this.selectedPokemonTypes.push(pokemonType);
             this.typeFilter.emit({
                 value: this.selectedPokemonTypes
             });
         }
         else {
-            console.log(this.selectedPokemonTypes);
             this.selectedPokemonTypes.splice(index, 1);
             this.typeFilter.emit({
                 value: this.selectedPokemonTypes

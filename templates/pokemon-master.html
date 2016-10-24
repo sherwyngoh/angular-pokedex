@@ -53,7 +53,7 @@
     <div *ngFor="let type of pokemonTypes">
       <div
       class="pokemon-type-row {{type.ename}}"
-      >
+      [class.filteredOut]="typesFilter.indexOf(type.ename) != -1">
         <h3>{{type.ename}} ({{type.jname}})</h3>
         <div
           class="pokemon" 

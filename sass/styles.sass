@@ -355,9 +355,14 @@ header
 
 .pokemon-type-row
   padding: 2rem 0
+  transition: height 0.2s ease
+  height: auto
   h3
     color: white
     letter-spacing: 1px
+  &.filteredOut
+    height: 0
+
 
   &.Grass
     background: #7ac74c

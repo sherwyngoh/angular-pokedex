@@ -25,12 +25,12 @@ export class Pokemon {
     pre_evolution?: number[];
   };
   type: string[];
+  typesInEnglish = [];
 
   getTypes?(pokemon: Pokemon) {
     const cname = this.type
     let result = []
     for(let type of cname) {
-      console.log(type);
       for (let pokemonType of POKEMONTYPES) {
         if(type === pokemonType.cname) {
           result.push(type)
