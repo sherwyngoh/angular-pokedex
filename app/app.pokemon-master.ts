@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Pokemon } from './pokemon';
-import { PokemonType } from './pokemon-type';
-import { PokemonService } from './pokemon.service';
-import { PokemonTypesService } from './pokemon-types.service';
+import { Component } from '@angular/core'
+import { Pokemon } from './pokemon'
+import { PokemonType } from './pokemon-type'
+import { PokemonService } from './pokemon.service'
+import { PokemonTypesService } from './pokemon-types.service'
 
 
 @Component({
@@ -12,20 +12,20 @@ import { PokemonTypesService } from './pokemon-types.service';
 
 
 export class PokemonMasterComponent {
-  typesFilter: string[];
-  nameIdFilter: string;
-  selectedPokemon: Pokemon;
-  selectedPokemonTypes: PokemonType[];
-  pokemonTypes: PokemonType[];
-  pokemon: Pokemon[];
+  typesFilter: string[]
+  nameIdFilter: string
+  selectedPokemon: Pokemon
+  selectedPokemonTypes: PokemonType[]
+  pokemonTypes: PokemonType[]
+  pokemon: Pokemon[]
   
-  toggleFilter = false;
-  searchQuery = '';
-  sortID = 'asc';
-  sortName = '';
-  sortType = '';
+  toggleFilter = false
+  searchQuery = ''
+  sortID = 'asc'
+  sortName = ''
+  sortType = ''
 
-  filteredPokemon: Pokemon[];
+  filteredPokemon: Pokemon[]
   
   constructor(
     private pokemonService: PokemonService,
@@ -33,23 +33,23 @@ export class PokemonMasterComponent {
     ) { }
 
   ngOnInit(): void {
-    this.getPokemon();
-    this.typesFilter = [];
-  };
+    this.typesFilter = []
+    this.getPokemon()
+  }
 
   getPokemon(): void {
     this.pokemonService.getPokemon().then((pokemon) => {
-      this.pokemon = pokemon;
-      this.filteredPokemon = pokemon;
-      this.getPokemonTypes();
+      this.pokemon = pokemon
+      this.filteredPokemon = pokemon
+      this.getPokemonTypes()
     })
-  };
+  }
 
   sort(recentToggle: string):void {
     if (this[`sort${recentToggle}`] === '') {return}
     this.filteredPokemon = this.filteredPokemon.sort( ( a, b ) => {
-      return this[`compareBy${recentToggle}`]( a, b );
-    });
+      return this[`compareBy${recentToggle}`]( a, b )
+    })
   }
 
   compareByName(a, b): number {
@@ -109,9 +109,9 @@ export class PokemonMasterComponent {
   }
   
   getPokemonTypes(): void {
-    let r = {};
+    let r = {}
     this.pokemonTypesService.getPokemonTypes().then( (pokemonTypes) => {
-      this.pokemonTypes = pokemonTypes;
+      this.pokemonTypes = pokemonTypes
       this.pokemon.forEach( (pokemon) => {
         pokemon.type.forEach( (type) => {
           if (r[type]) {
@@ -124,7 +124,7 @@ export class PokemonMasterComponent {
     }).then( () => {
       for (let ctype in r) {
         for (let i in this.pokemonTypes) {
-          const type = this.pokemonTypes[i];
+          const type = this.pokemonTypes[i]
           if (type.cname == ctype) {
             r[type.ename] = r[type.cname]
             r[type.ename].forEach( (pokemon) => {
@@ -138,16 +138,16 @@ export class PokemonMasterComponent {
   }
 
   onSelect(pokemon: Pokemon): void {
-    this.selectedPokemon = pokemon;
-  };
+    this.selectedPokemon = pokemon
+  }
   
   typeFilterEvent(value): void {
     this.typesFilter = value.value.map((type) => {
-      return type.ename;
-    });
+      return type.ename
+    })
 
     this.filteredPokemon = this.pokemon.filter( (pokemon) => {
-      let remains = true;
+      let remains = true
       for (let i in pokemon.typesInEnglish) {
         if (this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1) {
           remains = false
@@ -158,43 +158,43 @@ export class PokemonMasterComponent {
   }
 
   getTypes(pokemon: Pokemon): string[] {
-    let result = [];
+    let result = []
     for ( let t in pokemon.type ) {
       let pt = pokemon.type[t]
       for (let i in this.pokemonTypes ) {
         let ptcheck = this.pokemonTypes[i]
         if (pt === ptcheck.cname) {
-          result.push(ptcheck.ename);
+          result.push(ptcheck.ename)
         }
       }
     }
-    return result;
+    return result
   }
 
   updateSearchQuery(): void {
     if ( this.searchQuery != undefined ) {
       this.filteredPokemon = this.pokemon.filter((pokemon) => {
         if (pokemon.ename.indexOf(this.searchQuery) != -1) {
-          return true;
+          return true
         } 
-        return false;
-      });
+        return false
+      })
     }
-    this.typeFilterEvent(this.typesFilter);
+    this.typeFilterEvent(this.typesFilter)
   }
 
   performSortToggle(field: string): void {
     switch ( field ) {
       case 'id':
-        this.toggleSortField('sortID');
-        this.sort('ID');
+        this.toggleSortField('sortID')
+        this.sort('ID')
         break
       case 'name':
-        this.toggleSortField('sortName');
-        this.sort('Name');
+        this.toggleSortField('sortName')
+        this.sort('Name')
         break
       case 'type':
-        this.toggleSortField('sortType');
+        this.toggleSortField('sortType')
         this.sort('Type')
         break
       default:
@@ -205,13 +205,13 @@ export class PokemonMasterComponent {
   toggleSortField(field: string): void {
     switch ( this[field] ) {
       case 'asc':
-        this[field] = 'dsc'; 
+        this[field] = 'dsc' 
         break
       case 'dsc':
-        this[field] = ''; 
+        this[field] = '' 
         break
       case '':
-        this[field] = 'asc'; 
+        this[field] = 'asc' 
         break
       default:
         break

@@ -32,15 +32,9 @@
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
-  <div class="row">
-    <div id="speech-bubble">{{typesFilter}}</div>
-    <img src="assets/images/icons/snorlax.svg" alt="" class="host snorlax">
-    <img src="assets/images/icons/eevee.svg" alt="" class="host eevee">
-  </div>
-  
   <div class="pokemons" >
     <div
-    class="pokemon" 
+    class="pokemon {{p.typesInEnglish[0]}}" 
     *ngFor="let p of filteredPokemon"
     [class.selected]="selectedPokemon === p"
     (click)="onSelect(p)"
@@ -49,12 +43,6 @@
       <img src="assets/images/spr/{{p.id}}MS.png" alt="">
       <div class="name">{{p.ename}}</div>
     </div>
-  </div>
-
-  <div class="row">
-    <div id="speech-bubble"></div>
-    <img src="assets/images/icons/jigglypuff.svg" alt="" class="host snorlax">
-    <img src="assets/images/icons/psyduck.svg" alt="" class="host eevee">
   </div>
 
 </section>

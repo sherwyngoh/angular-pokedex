@@ -22,10 +22,9 @@ var PokemonMasterComponent = (function () {
         this.sortType = '';
     }
     PokemonMasterComponent.prototype.ngOnInit = function () {
-        this.getPokemon();
         this.typesFilter = [];
+        this.getPokemon();
     };
-    ;
     PokemonMasterComponent.prototype.getPokemon = function () {
         var _this = this;
         this.pokemonService.getPokemon().then(function (pokemon) {
@@ -34,7 +33,6 @@ var PokemonMasterComponent = (function () {
             _this.getPokemonTypes();
         });
     };
-    ;
     PokemonMasterComponent.prototype.sort = function (recentToggle) {
         var _this = this;
         if (this[("sort" + recentToggle)] === '') {
@@ -125,7 +123,6 @@ var PokemonMasterComponent = (function () {
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
         this.selectedPokemon = pokemon;
     };
-    ;
     PokemonMasterComponent.prototype.typeFilterEvent = function (value) {
         var _this = this;
         this.typesFilter = value.value.map(function (type) {
