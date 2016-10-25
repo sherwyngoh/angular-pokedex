@@ -36,28 +36,12 @@ var PokemonMasterComponent = (function () {
     };
     ;
     PokemonMasterComponent.prototype.sort = function (recentToggle) {
-        if (this.sortType === '') {
-            this.sortForFiltered(recentToggle);
-        }
-        else {
-            this.sortForFilteredTypes();
-        }
-    };
-    PokemonMasterComponent.prototype.sortForFiltered = function (recentToggle) {
         var _this = this;
+        if (this[("sort" + recentToggle)] === '') {
+            return;
+        }
         this.filteredPokemon = this.filteredPokemon.sort(function (a, b) {
-            return _this["compareBy" + recentToggle](a, b);
-        });
-    };
-    PokemonMasterComponent.prototype.sortForFilteredTypes = function () {
-        var _this = this;
-        this.pokemonTypes = this.pokemonTypes.sort(function (a, b) {
-            return _this.compareByType(a, b);
-        });
-        this.pokemonTypes.forEach(function (type) {
-            _this.pokemonByTypes[type.ename] = _this.pokemonByTypes[type.ename].sort(function (a, b) {
-                return _this.compareByName(a, b) + _this.compareByID(a, b);
-            });
+            return _this[("compareBy" + recentToggle)](a, b);
         });
     };
     PokemonMasterComponent.prototype.compareByName = function (a, b) {
@@ -66,8 +50,6 @@ var PokemonMasterComponent = (function () {
                 return (a.ename > b.ename) ? 1 : -1;
             case 'dsc':
                 return (a.ename > b.ename) ? -1 : 1;
-            default:
-                return 0;
         }
     };
     PokemonMasterComponent.prototype.compareByID = function (a, b) {
@@ -76,18 +58,35 @@ var PokemonMasterComponent = (function () {
                 return (a.id > b.id) ? 1 : -1;
             case 'dsc':
                 return (a.id > b.id) ? -1 : 1;
-            default:
-                return 0;
         }
     };
     PokemonMasterComponent.prototype.compareByType = function (a, b) {
+        var aBaseType = a.typesInEnglish[0];
+        var bBaseType = b.typesInEnglish[0];
+        var aLength = a.typesInEnglish.length;
+        var bLength = b.typesInEnglish.length;
+        var aHas2Types = aLength === 2;
         switch (this.sortType) {
             case 'asc':
-                return (a.ename > b.ename) ? 1 : -1;
+                if (aBaseType === bBaseType) {
+                    if (aLength != bLength) {
+                        return (aLength > bLength) ? 1 : -1;
+                    }
+                    if (aHas2Types) {
+                        return (a.typesInEnglish[1] > b.typesInEnglish[1]) ? 1 : -1;
+                    }
+                }
+                return (a.typesInEnglish[0] > b.typesInEnglish[0]) ? 1 : -1;
             case 'dsc':
-                return (a.ename > b.ename) ? -1 : 1;
-            default:
-                return 0;
+                if (aBaseType === bBaseType) {
+                    if (aLength != bLength) {
+                        return (aLength > bLength) ? -1 : 1;
+                    }
+                    if (aHas2Types) {
+                        return (a.typesInEnglish[1] > b.typesInEnglish[1]) ? -1 : 1;
+                    }
+                }
+                return (a.typesInEnglish[0] > b.typesInEnglish[0]) ? -1 : 1;
         }
     };
     PokemonMasterComponent.prototype.getPokemonTypes = function () {
@@ -121,7 +120,6 @@ var PokemonMasterComponent = (function () {
                     _loop_1(i);
                 }
             }
-            _this.pokemonByTypes = r;
         });
     };
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
@@ -133,17 +131,15 @@ var PokemonMasterComponent = (function () {
         this.typesFilter = value.value.map(function (type) {
             return type.ename;
         });
-        if (this.sortType === '') {
-            this.filteredPokemon = this.pokemon.filter(function (pokemon) {
-                var remains = true;
-                for (var i in pokemon.typesInEnglish) {
-                    if (_this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1) {
-                        remains = false;
-                    }
+        this.filteredPokemon = this.pokemon.filter(function (pokemon) {
+            var remains = true;
+            for (var i in pokemon.typesInEnglish) {
+                if (_this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1) {
+                    remains = false;
                 }
-                return remains;
-            });
-        }
+            }
+            return remains;
+        });
     };
     PokemonMasterComponent.prototype.getTypes = function (pokemon) {
         var result = [];

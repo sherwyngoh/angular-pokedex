@@ -18,7 +18,6 @@ export class PokemonMasterComponent {
   selectedPokemonTypes: PokemonType[];
   pokemonTypes: PokemonType[];
   pokemon: Pokemon[];
-  pokemonByTypes: any;
   
   toggleFilter = false;
   searchQuery = '';
@@ -47,61 +46,65 @@ export class PokemonMasterComponent {
   };
 
   sort(recentToggle: string):void {
-    if (this.sortType === '') {
-      this.sortForFiltered(recentToggle);
-    } else {
-      this.sortForFilteredTypes();
-    }
-  }
-
-  sortForFiltered(recentToggle: string) {
+    if (this[`sort${recentToggle}`] === '') {return}
     this.filteredPokemon = this.filteredPokemon.sort( ( a, b ) => {
-      return this[`compareBy` + recentToggle]( a, b );
+      return this[`compareBy${recentToggle}`]( a, b );
     });
   }
 
-  sortForFilteredTypes() {
-    this.pokemonTypes = this.pokemonTypes.sort( ( a, b ) => {
-      return this.compareByType( a, b );
-    })
-
-    this.pokemonTypes.forEach( (type) => {
-      this.pokemonByTypes[type.ename] = this.pokemonByTypes[type.ename].sort( ( a, b ) => {
-        return this.compareByName( a, b ) + this.compareByID( a, b )
-      })
-    })
-  }
-
-  compareByName( a, b ): number {
+  compareByName(a, b): number {
     switch (this.sortName) {
       case 'asc':
-        return (a.ename > b.ename) ? 1 : -1 
-      case 'dsc':
-        return (a.ename > b.ename) ? -1 : 1 
-      default:
-        return 0
-    }    
+        return (a.ename > b.ename) ? 1 : -1
+      case 'dsc': 
+        return (a.ename > b.ename) ? -1 : 1
+    }
   }
 
   compareByID( a, b ): number {
     switch (this.sortID) {
       case 'asc':
-        return (a.id > b.id) ? 1 : -1 
-      case 'dsc':
-        return (a.id > b.id) ? -1 : 1 
-      default:
-        return 0
+        return (a.id > b.id) ? 1 : -1
+      case 'dsc': 
+        return (a.id > b.id) ? -1 : 1
     }
   }
 
   compareByType( a, b): number {
+    const aBaseType = a.typesInEnglish[0]
+    const bBaseType = b.typesInEnglish[0]
+    const aLength = a.typesInEnglish.length
+    const bLength = b.typesInEnglish.length
+    const aHas2Types = aLength === 2
+
     switch (this.sortType) {
       case 'asc':
-        return (a.ename > b.ename) ? 1 : -1 
+
+        if (aBaseType === bBaseType) {
+
+          if (aLength != bLength) {
+            return (aLength > bLength) ? 1 : -1
+          }
+
+          if (aHas2Types) {
+            return (a.typesInEnglish[1] > b.typesInEnglish[1]) ? 1 : -1      
+          }
+        } 
+
+        return (a.typesInEnglish[0] > b.typesInEnglish[0]) ? 1 : -1
       case 'dsc':
-        return (a.ename > b.ename) ? -1 : 1 
-      default:
-        return 0
+        if (aBaseType === bBaseType) {
+
+          if (aLength != bLength) {
+            return (aLength > bLength) ? -1 : 1
+          }
+
+          if (aHas2Types) {
+            return (a.typesInEnglish[1] > b.typesInEnglish[1]) ? -1 : 1      
+          }
+        } 
+
+        return (a.typesInEnglish[0] > b.typesInEnglish[0]) ? -1 : 1
     }
   }
   
@@ -131,11 +134,9 @@ export class PokemonMasterComponent {
           }
         }
       }
-      this.pokemonByTypes = r
     })
   }
 
-  
   onSelect(pokemon: Pokemon): void {
     this.selectedPokemon = pokemon;
   };
@@ -145,18 +146,15 @@ export class PokemonMasterComponent {
       return type.ename;
     });
 
-
-    if ( this.sortType === '' ) {
-      this.filteredPokemon = this.pokemon.filter( (pokemon) => {
-        let remains = true;
-        for (let i in pokemon.typesInEnglish) {
-          if ( this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1 ) {
-            remains = false
-          }
+    this.filteredPokemon = this.pokemon.filter( (pokemon) => {
+      let remains = true;
+      for (let i in pokemon.typesInEnglish) {
+        if (this.typesFilter.indexOf(pokemon.typesInEnglish[i]) != -1) {
+          remains = false
         }
-        return remains
-      })
-    }
+      }
+      return remains
+    })
   }
 
   getTypes(pokemon: Pokemon): string[] {

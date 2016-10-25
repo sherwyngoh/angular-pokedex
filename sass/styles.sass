@@ -57,19 +57,6 @@ header
     &.eevee
       float: right
 
-  .pokemons
-    opacity: 0
-    height: 0
-    z-index: 0
-    pointer-events:  none
-    position: relative
-    transition: opacity 0.7s ease, height 0.5s ease
-    &.show
-      z-index: 1
-      pointer-events:  all
-      height: auto
-      opacity: 1
-
   .pokemon
     transition: opacity 0.3s ease, transform 0.1s ease
     transform: scale(1) 
@@ -352,14 +339,6 @@ header
   &.Fairy
     background: #D685AD
     border: 1px solid #D685AD
-
-.pokemon-type-row
-  padding: 2rem 0
-  h3
-    color: white
-    letter-spacing: 1px
-
-
 
   &.Grass
     background: #7ac74c
