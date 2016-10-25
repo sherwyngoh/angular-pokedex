@@ -121,7 +121,12 @@ var PokemonMasterComponent = (function () {
         });
     };
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
-        this.selectedPokemon = pokemon;
+        if (this.selectedPokemon === pokemon) {
+            this.selectedPokemon = undefined;
+        }
+        else {
+            this.selectedPokemon = pokemon;
+        }
     };
     PokemonMasterComponent.prototype.typeFilterEvent = function (value) {
         var _this = this;

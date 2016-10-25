@@ -138,7 +138,11 @@ export class PokemonMasterComponent {
   }
 
   onSelect(pokemon: Pokemon): void {
-    this.selectedPokemon = pokemon
+    if(this.selectedPokemon === pokemon) {
+      this.selectedPokemon = undefined
+    } else {
+      this.selectedPokemon = pokemon
+    }
   }
   
   typeFilterEvent(value): void {
