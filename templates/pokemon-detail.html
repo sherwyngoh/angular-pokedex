@@ -1,4 +1,4 @@
-<div  id="selectedPokemon" [class.active]="pokemon">
+<div id="selectedPokemon" [class.active]="pokemon" [class.flipped]="!faceFront" (click)="faceFront = !faceFront">
   <div *ngIf="pokemon">
     <div class="id">
       ID: {{pokemon.id}}
@@ -20,47 +20,50 @@
       <div class="base">
         <table>
           <tr>
-            <th>
-              Attack
-            </th>
-            <td>
-              {{pokemon.base.Attack}}
+            <th>Attack</th>
+            <td>{{pokemon.base.Attack}}
             </td>
           </tr>
+
           <tr>
-            <th>
-              Defense
-            </th>
-            <td>
-              {{pokemon.base.Defense}}
-            </td>
+            <th>Defense</th>
+            <td>{{pokemon.base.Defense}}</td>
           </tr>
+
           <tr>
-            <th>
-              SpAtk
-            </th>
-            <td>
-              {{pokemon.base.SpAtk}}
-            </td>
+            <th>SpAtk</th>
+            <td>{{pokemon.base.SpAtk}}</td>
           </tr>
+
           <tr>
-            <th>
-              SpDef
-            </th>
-            <td>
-              {{pokemon.base.SpDef}}
-            </td>
+            <th>SpDef</th>
+            <td>{{pokemon.base.SpDef}}</td>
           </tr>
+
           <tr>
-            <th>
-              Speed
-            </th>
-            <td>
-              {{pokemon.base.Speed}}
-            </td>
+            <th>Speed</th>
+            <td>{{pokemon.base.Speed}}</td>
           </tr>
+
         </table>
       </div>
     </div>
   </div>
+
+</div>
+
+<div class="back-face" [class.active]="pokemon" [class.flipped]="faceFront" (click)="faceFront = !faceFront">
+  <div *ngIf="pokemon" >
+    <div class="row">
+        <div class="col s12">
+          {{pokemon.skills.level_up}}
+        </div>
+    </div>
+  </div>
+</div>
+<div class="button-row">
+  <button (click)="pokemon = undefined" id="closeModal" [class.active]="pokemon">x</button>
+  <button (click)="faceFront =  !faceFront" id="togglePokemonCard" [class.active]="pokemon">
+    <img src="assets/images/flip.svg" alt="">
+  </button>
 </div>

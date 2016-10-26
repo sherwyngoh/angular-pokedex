@@ -110,10 +110,10 @@ export class PokemonMasterComponent {
   
   getPokemonTypes(): void {
     let r = {}
-    this.pokemonTypesService.getPokemonTypes().then( (pokemonTypes) => {
+    this.pokemonTypesService.getPokemonTypes().then((pokemonTypes) => {
       this.pokemonTypes = pokemonTypes
-      this.pokemon.forEach( (pokemon) => {
-        pokemon.type.forEach( (type) => {
+      this.pokemon.forEach((pokemon) => {
+        pokemon.type.forEach((type) => {
           if (r[type]) {
             r[type].push(pokemon)
           } else {
@@ -121,13 +121,13 @@ export class PokemonMasterComponent {
           }
         })
       })
-    }).then( () => {
+    }).then(() => {
       for (let ctype in r) {
         for (let i in this.pokemonTypes) {
           const type = this.pokemonTypes[i]
           if (type.cname == ctype) {
             r[type.ename] = r[type.cname]
-            r[type.ename].forEach( (pokemon) => {
+            r[type.ename].forEach((pokemon) => {
                 pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename]
             })
             delete r[type.cname]

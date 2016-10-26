@@ -8,19 +8,6 @@ header
   position: fixed
   z-index: 2
   width: 100%
-  #closeModal
-    position: fixed
-    border-radius: 0.8rem
-    width: 9rem
-    z-index: 99
-    right: 0.5rem
-    transform: translateX(120%)
-    background: darkslategrey
-    color: white
-    font-size: 1.5rem
-    &.active
-      transform: translateX(0)
-
   button
     transition: transform 0.1s ease
     margin-right: 0.8rem
@@ -129,51 +116,37 @@ header
     font-weight: bold
     text-align: center
     margin-bottom: 0
-    
 
-#selectedPokemon
+.back-face, #selectedPokemon
   position: fixed
-  transform: translateX(120%) perspective(1px) translateZ(0)
+  transform: translateX(120%)
   border-radius: 20px
-  z-index: 2
-  margin-top: 7rem
   margin-left: 2rem
+  margin-top: 7rem
   width: 27rem
-  min-height: 40rem
-  transition: transform 0.2s
+  height: 45rem
+  transition: transform 0.3s ease
   max-width: 70%
   right: 2rem
   box-shadow: 3px 3px 5px 6px #ccc
   border: 5px solid darkslategrey
   background: darkslategrey
   padding: 1.5rem
+  color: white
+  z-index: 3
 
   &.active
     transform: translateX(0)
-    &:before
-      position: absolute
-      content: ''
-      height: 1.5rem
-      width: 1.5rem
-      bottom: 0
-      right: 0
-      background: white
-      /* IE9 */
-      background: linear-gradient(315deg, white 45%, #aaa 50%, #ccc 56%, white 80%)
-      box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4)
-      -webkit-transition-duration: 0.3s
-      transition-duration: 0.3s
-      -webkit-transition-property: width, height
-      transition-property: width, height
+    &.flipped
+      transform: translateX(0) rotateY(180deg)
+      z-index: 1
 
   .hp
     position: absolute
     right: 0rem
-    color: white
     font-size: 2.5rem
     span
       font-size: 1rem
-      position: absolute
       right: 3rem
       top: 2rem
 
@@ -181,10 +154,8 @@ header
     position: absolute
     left: 10px
     top: 0px
-    color: white
 
   h5
-    color: white
     margin-bottom: 0
     margin-top: 1rem
     padding: 1rem 1rem 1rem 0
@@ -264,6 +235,36 @@ header
     max-width: 90%
     th, td
       padding: 0.7rem 0.5rem
+
+.button-row
+  position: fixed
+  right: 2rem
+  bottom: 3rem
+  z-index: 98
+
+  button
+    border-radius: 0.8rem
+    width: 9rem
+    opacity: 0
+    background: darkslategrey
+    color: white
+    font-size: 1.5rem
+    float: right
+    margin: 0 1rem
+    &.active
+      opacity: 1
+    &:hover, &:focus
+      color: white
+    img
+      max-height: 90%
+
+  @media all and (max-width: 600px)
+    width: 100%
+    right: 0
+    button:nth-child(1)
+      float: left
+      margin-left: 1rem
+
 
 .pokemon-type
   padding: 0.5rem
@@ -360,9 +361,6 @@ header
   background: #D685AD
   border: 1px solid #D685AD
 
-  
-
-
 $search-query-height: 4rem
 
 #searchQuery
@@ -443,4 +441,3 @@ $search-query-height: 4rem
     transition: transform 0.2s ease, left 0.2s ease
     transform: rotate(-20deg)
     left: -4rem
-  

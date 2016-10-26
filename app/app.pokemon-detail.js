@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var pokemon_1 = require('./pokemon');
 var PokemonDetailComponent = (function () {
     function PokemonDetailComponent() {
+        this.faceFront = false;
     }
     __decorate([
         core_1.Input(), 

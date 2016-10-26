@@ -9,4 +9,5 @@ import { Pokemon } from './pokemon'
 export class PokemonDetailComponent {
   @Input() pokemon: Pokemon
   @Input() pokemonTypes?: string[]
+  faceFront = false;
 }
