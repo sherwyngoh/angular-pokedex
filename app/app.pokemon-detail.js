@@ -12,15 +12,6 @@ var core_1 = require('@angular/core');
 var pokemon_1 = require('./pokemon');
 var pokemon_skills_service_1 = require('./pokemon-skills.service');
 var core_2 = require('@angular/core');
-/*
- * Raise the value exponentially
- * Takes an exponent argument that defaults to 1.
- * Usage:
- *   value | exponentialStrength:exponent
- * Example:
- *   {{ 2 |  exponentialStrength:10}}
- *   formats to: 1024
-*/
 var ToTitleCase = (function () {
     function ToTitleCase() {
     }
@@ -37,7 +28,7 @@ exports.ToTitleCase = ToTitleCase;
 var PokemonDetailComponent = (function () {
     function PokemonDetailComponent(pokemonSkillsService) {
         this.pokemonSkillsService = pokemonSkillsService;
-        this.faceFront = false;
+        this.faceFront = true;
     }
     PokemonDetailComponent.prototype.ngOnInit = function () {
         var _this = this;

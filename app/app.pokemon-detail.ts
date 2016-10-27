@@ -4,24 +4,14 @@ import { PokemonSkill } from './pokemon-skill'
 import { PokemonType } from './pokemon-type'
 import { PokemonSkillsService } from './pokemon-skills.service'
 
-
 import { Pipe, PipeTransform } from '@angular/core';
-/*
- * Raise the value exponentially
- * Takes an exponent argument that defaults to 1.
- * Usage:
- *   value | exponentialStrength:exponent
- * Example:
- *   {{ 2 |  exponentialStrength:10}}
- *   formats to: 1024
-*/
+
 @Pipe({name: 'toTitleCase'})
 export class ToTitleCase implements PipeTransform {
   transform(value: string): string {
     return value.split('_').map(i => (i[0].toUpperCase() + i.substring(1, i.length))).join(' ');
   }
 }
-
 
 @Component({
   selector: 'pokemon-detail',
@@ -32,7 +22,7 @@ export class PokemonDetailComponent {
   @Input() pokemon: Pokemon
   @Input() selectedPokemonTypes?: string[]
   @Input() pokemonTypes?: PokemonType[]
-  faceFront = false
+  faceFront = true
   pokemonSkills: PokemonSkill[]
 
   constructor(
