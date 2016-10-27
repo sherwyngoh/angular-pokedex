@@ -18,7 +18,7 @@ export class Pokemon {
   model?: PokemonModel[];
   skills: {
     egg?: number[];
-    level_up: number[];
+    level_up?: number[];
     tm?: number[];
     tutor?: number[];
     transfer?: number[];
