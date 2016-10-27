@@ -31,17 +31,15 @@
   id="pokemon-list"
   [class.selected]="selectedPokemon"
   >
-  <div class="pokemons" >
-    <div
-    class="pokemon {{p.typesInEnglish[0]}}" 
-    *ngFor="let p of filteredPokemon"
-    [class.selected]="selectedPokemon === p"
-    (click)="onSelect(p)"
-    [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" 
-    [attr.types]="p.typesInEnglish">
-      <img src="assets/images/spr/{{p.id}}MS.png" alt="">
-      <div class="name">{{p.ename}}</div>
-    </div>
+  <div
+  class="pokemon {{p.typesInEnglish[0]}}" 
+  *ngFor="let p of filteredPokemon"
+  [class.selected]="selectedPokemon === p"
+  (click)="onSelect(p)"
+  [class.fade]="this.searchQuery.length > 0 && !p.ename.toLowerCase().includes(this.searchQuery.toLowerCase())" 
+  [attr.types]="p.typesInEnglish">
+    <img src="assets/images/spr/{{p.id}}MS.png" alt="">
+    <div class="name">{{p.ename}}</div>
   </div>
 
 </section>
