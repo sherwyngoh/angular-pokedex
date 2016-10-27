@@ -1,9 +1,6 @@
 html, body {
   height: 100%; }
 
-body.stop-scroll {
-  overflow: hidden; }
-
 header {
   box-shadow: 1px 1px 1px 2px #ccc;
   padding: 1rem 1rem 0 1rem;
@@ -43,7 +40,7 @@ header {
 .loading-wrapper {
   max-height: 100%;
   max-width: 100%; }
-@keyframes hoverr {
+@keyframes pokemonHover {
   0% {
     top: 0%; }
   100% {
@@ -57,12 +54,15 @@ header {
     background: white;
     height: 100%;
     top: 50%;
-    animation: hoverr 5s infinite alternate-reverse; }
+    animation: pokemonHover 5s infinite alternate-reverse; }
 
 #pokemon-list {
   padding-top: 7.5rem;
   text-align: center;
   padding-bottom: 15rem; }
+  @media all and (max-width: 550px) {
+    #pokemon-list {
+      padding-top: 12.5rem; } }
   #pokemon-list .pokemon {
     transition: opacity 0.3s ease, transform 0.1s ease;
     transform: scale(1);
@@ -117,8 +117,7 @@ header {
   width: 27rem;
   right: 2rem;
   z-index: 3;
-  background: darkslategrey;
-  border-radius: 20px; }
+  background: darkslategrey; }
   #selectedSkill:hover {
     cursor: pointer; }
   #selectedSkill .pokemon-type {
