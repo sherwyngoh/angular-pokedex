@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Pokemon } from './pokemon'
 import { PokemonType } from './pokemon-type'
+import { PokemonSkill } from './pokemon-skill'
 import { PokemonService } from './pokemon.service'
 import { PokemonTypesService } from './pokemon-types.service'
 
@@ -29,7 +30,7 @@ export class PokemonMasterComponent {
   
   constructor(
     private pokemonService: PokemonService,
-    private pokemonTypesService: PokemonTypesService, 
+    private pokemonTypesService: PokemonTypesService
     ) { }
 
   ngOnInit(): void {
@@ -122,19 +123,23 @@ export class PokemonMasterComponent {
         })
       })
     }).then(() => {
-      for (let ctype in r) {
-        for (let i in this.pokemonTypes) {
-          const type = this.pokemonTypes[i]
-          if (type.cname == ctype) {
-            r[type.ename] = r[type.cname]
-            r[type.ename].forEach((pokemon) => {
-                pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename]
-            })
-            delete r[type.cname]
-          }
+      this.mapPokemonTypesToEnglish(r)
+    })
+  }
+
+  mapPokemonTypesToEnglish(r): void {
+    for (let ctype in r) {
+      for (let i in this.pokemonTypes) {
+        const type = this.pokemonTypes[i]
+        if (type.cname == ctype) {
+          r[type.ename] = r[type.cname]
+          r[type.ename].forEach((pokemon) => {
+              pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename]
+          })
+          delete r[type.cname]
         }
       }
-    })
+    }
   }
 
   onSelect(pokemon: Pokemon): void {
@@ -142,6 +147,7 @@ export class PokemonMasterComponent {
       this.selectedPokemon = undefined
     } else {
       this.selectedPokemon = pokemon
+      
     }
   }
   

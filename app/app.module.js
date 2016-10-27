@@ -14,10 +14,11 @@ var forms_1 = require('@angular/forms');
 var app_pokemon_master_1 = require('./app.pokemon-master');
 var app_pokemon_types_master_1 = require('./app.pokemon-types-master');
 var app_pokemon_detail_1 = require('./app.pokemon-detail');
+var app_pokemon_detail_2 = require('./app.pokemon-detail');
 var app_component_1 = require('./app.component');
 var pokemon_types_service_1 = require('./pokemon-types.service');
 var pokemon_service_1 = require('./pokemon.service');
-var app_other_filters_1 = require('./app.other-filters');
+var pokemon_skills_service_1 = require('./pokemon-skills.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,9 +33,9 @@ var AppModule = (function () {
                 app_pokemon_master_1.PokemonMasterComponent,
                 app_pokemon_detail_1.PokemonDetailComponent,
                 app_pokemon_types_master_1.PokemonTypesMasterComponent,
-                app_other_filters_1.OtherFiltersComponent,
+                app_pokemon_detail_2.ToTitleCase,
             ],
-            providers: [pokemon_service_1.PokemonService, pokemon_types_service_1.PokemonTypesService],
+            providers: [pokemon_service_1.PokemonService, pokemon_types_service_1.PokemonTypesService, pokemon_skills_service_1.PokemonSkillsService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

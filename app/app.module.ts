@@ -5,12 +5,13 @@ import { FormsModule }   from '@angular/forms';
 import { PokemonMasterComponent }   from './app.pokemon-master';
 import { PokemonTypesMasterComponent }   from './app.pokemon-types-master';
 import { PokemonDetailComponent }   from './app.pokemon-detail';
+import { ToTitleCase }   from './app.pokemon-detail';
 import { AppComponent }   from './app.component';
 
 import { PokemonTypesService }   from './pokemon-types.service';
 import { PokemonService }   from './pokemon.service';
+import { PokemonSkillsService }   from './pokemon-skills.service';
 
-import { OtherFiltersComponent } from './app.other-filters'
 
 @NgModule({
   imports:      [ 
@@ -22,9 +23,9 @@ import { OtherFiltersComponent } from './app.other-filters'
     PokemonMasterComponent, 
     PokemonDetailComponent, 
     PokemonTypesMasterComponent,
-    OtherFiltersComponent, 
+    ToTitleCase,
     ],
-  providers: [ PokemonService, PokemonTypesService ],
+  providers: [ PokemonService, PokemonTypesService, PokemonSkillsService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

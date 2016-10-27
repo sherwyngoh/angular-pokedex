@@ -1,4 +1,4 @@
-<pokemon-detail [pokemon]=selectedPokemon [pokemonTypes]="selectedPokemon ? getTypes(selectedPokemon) : undefined"></pokemon-detail>
+<pokemon-detail [pokemon]=selectedPokemon  [pokemonTypes]="pokemonTypes" [selectedPokemonTypes]="selectedPokemon ? getTypes(selectedPokemon) : undefined"></pokemon-detail>
 <div [class.active]="toggleFilter" id="filterModal">
   <div class="row">
     <div class="twelve columns">

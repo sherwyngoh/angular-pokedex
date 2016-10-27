@@ -1,6 +1,9 @@
 html, body {
   height: 100%; }
 
+body.stop-scroll {
+  overflow: hidden; }
+
 header {
   box-shadow: 1px 1px 1px 2px #ccc;
   padding: 1rem 1rem 0 1rem;
@@ -106,6 +109,38 @@ header {
     text-align: center;
     margin-bottom: 0; }
 
+#selectedSkill {
+  position: fixed;
+  color: #222;
+  border-radius: 20px;
+  margin-top: 1rem;
+  width: 27rem;
+  right: 2rem;
+  z-index: 3;
+  background: darkslategrey;
+  border-radius: 20px; }
+  #selectedSkill:hover {
+    cursor: pointer; }
+  #selectedSkill .pokemon-type {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem; }
+    #selectedSkill .pokemon-type:hover {
+      transform: none;
+      cursor: normal; }
+  #selectedSkill .inner-container {
+    border-radius: 20px;
+    border-width: 10px;
+    background: darkslategrey;
+    color: white; }
+    #selectedSkill .inner-container h5 {
+      padding: 1.5rem;
+      border-bottom: 1px solid white;
+      font-weight: bold; }
+    #selectedSkill .inner-container p {
+      padding: 1.5rem;
+      margin-bottom: 0rem; }
+
 .back-face, #selectedPokemon {
   position: fixed;
   transform: translateX(120%);
@@ -122,7 +157,29 @@ header {
   background: darkslategrey;
   padding: 1.5rem;
   color: white;
-  z-index: 3; }
+  z-index: 3;
+  overflow-y: scroll; }
+  .back-face .skills-container, #selectedPokemon .skills-container {
+    max-height: 95%;
+    overflow-y: scroll;
+    padding: 0 1rem 1rem 1rem;
+    color: white; }
+    .back-face .skills-container h5, #selectedPokemon .skills-container h5 {
+      margin-bottom: 1rem;
+      border-bottom: 3px solid white; }
+    .back-face .skills-container h6, #selectedPokemon .skills-container h6 {
+      margin-bottom: 0; }
+    .back-face .skills-container .skill, #selectedPokemon .skills-container .skill {
+      background: #426f6f;
+      transition: background 0.3s ease;
+      padding: 0.8rem;
+      border-radius: 4px;
+      margin: 0.3rem;
+      font-size: 1.2rem;
+      display: inline-block; }
+      .back-face .skills-container .skill:hover, #selectedPokemon .skills-container .skill:hover {
+        background: #558f8f;
+        cursor: pointer; }
   .back-face.active, #selectedPokemon.active {
     transform: translateX(0); }
     .back-face.active.flipped, #selectedPokemon.active.flipped {

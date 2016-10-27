@@ -1,4 +1,4 @@
-<div id="selectedPokemon" [class.active]="pokemon" [class.flipped]="!faceFront" (click)="faceFront = !faceFront">
+<div id="selectedPokemon" [class.active]="pokemon" [class.flipped]="!faceFront">
   <div *ngIf="pokemon">
     <div class="id">
       ID: {{pokemon.id}}
@@ -14,7 +14,7 @@
           <span>HP</span>
           {{pokemon.base.HP}}
         </div>
-        <div class="pokemon-type {{item}}" *ngFor="let item of pokemonTypes" >{{item}}</div>
+        <div class="pokemon-type {{item}}" *ngFor="let item of selectedPokemonTypes" >{{item}}</div>
       </div>
 
       <div class="base">
@@ -52,18 +52,31 @@
 
 </div>
 
-<div class="back-face" [class.active]="pokemon" [class.flipped]="faceFront" (click)="faceFront = !faceFront">
-  <div *ngIf="pokemon" >
-    <div class="row">
-        <div class="col s12">
-          {{pokemon.skills.level_up}}
-        </div>
+<div class="back-face" [class.active]="pokemon" [class.flipped]="faceFront">
+  <div *ngIf="pokemon" class="skills-container">
+    <h5>Skills</h5>
+    <div *ngFor="let skillList of ['level_up', 'egg', 'pre_evolution', 'tm', 'tutor', 'transfer']">
+      <h6 *ngIf="pokemon.skills[skillList]">{{skillList|toTitleCase}}</h6>
+      <div *ngFor="let skill of getSkillsInSet(pokemon, skillList)" class="{{getType(skill)}} skill" (click)="selectedSkill = skill" >
+        {{skill.ename}}
+    </div>
     </div>
   </div>
 </div>
+
 <div class="button-row">
   <button (click)="pokemon = undefined" id="closeModal" [class.active]="pokemon">x</button>
   <button (click)="faceFront =  !faceFront" id="togglePokemonCard" [class.active]="pokemon">
     <img src="assets/images/flip.svg" alt="">
   </button>
+</div>
+<div *ngIf="selectedSkill" id="selectedSkill" (click)="selectedSkill = undefined">
+  <div class="inner-container {{getType(selectedSkill)}}">
+    <h5>#{{selectedSkill.id}}: {{selectedSkill.ename}}</h5>
+    <p *ngIf="selectedSkill.category" >Category: {{selectedSkill.category}}</p>
+    <p *ngIf="selectedSkill.power" >Power: {{selectedSkill.power}}</p>
+    <p *ngIf="selectedSkill.accuracy" >Accuracy: {{selectedSkill.accuracy}}</p>
+    <p *ngIf="selectedSkill.pp" >PP: {{selectedSkill.pp}}</p>
+    <span class="pokemon-type {{getType(selectedSkill)}}">{{getType(selectedSkill)}}</span>
+  </div>  
 </div>

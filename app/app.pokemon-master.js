@@ -103,22 +103,26 @@ var PokemonMasterComponent = (function () {
                 });
             });
         }).then(function () {
-            for (var ctype in r) {
-                var _loop_1 = function(i) {
-                    var type = _this.pokemonTypes[i];
-                    if (type.cname == ctype) {
-                        r[type.ename] = r[type.cname];
-                        r[type.ename].forEach(function (pokemon) {
-                            pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename];
-                        });
-                        delete r[type.cname];
-                    }
-                };
-                for (var i in _this.pokemonTypes) {
-                    _loop_1(i);
-                }
-            }
+            _this.mapPokemonTypesToEnglish(r);
         });
+    };
+    PokemonMasterComponent.prototype.mapPokemonTypesToEnglish = function (r) {
+        for (var ctype in r) {
+            var _loop_1 = function(i) {
+                var type = this_1.pokemonTypes[i];
+                if (type.cname == ctype) {
+                    r[type.ename] = r[type.cname];
+                    r[type.ename].forEach(function (pokemon) {
+                        pokemon.typesInEnglish ? pokemon.typesInEnglish.push(type.ename) : pokemon.typesInEnglish = [type.ename];
+                    });
+                    delete r[type.cname];
+                }
+            };
+            var this_1 = this;
+            for (var i in this.pokemonTypes) {
+                _loop_1(i);
+            }
+        }
     };
     PokemonMasterComponent.prototype.onSelect = function (pokemon) {
         if (this.selectedPokemon === pokemon) {

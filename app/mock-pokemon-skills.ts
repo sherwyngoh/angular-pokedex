@@ -664,7 +664,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b1\u3053\u3046\u305b\u3093", 
         power: 65, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -1035,7 +1035,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u306d\u3093\u308a\u304d", 
         power: 50, 
         pp: 25, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -1047,7 +1047,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: 90, 
         pp: 10, 
         tm: 29, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 60, 
@@ -1058,7 +1058,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3055\u3044\u307f\u3093\u3058\u3085\u3064", 
         power: null, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1069,7 +1069,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30e8\u30ac\u306e\u30dd\u30fc\u30ba", 
         power: null, 
         pp: 40, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1080,7 +1080,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3053\u3046\u305d\u304f\u3044\u3069\u3046", 
         power: null, 
         pp: 30, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -1113,7 +1113,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30c6\u30ec\u30dd\u30fc\u30c8", 
         power: null, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -1246,7 +1246,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30d0\u30ea\u30a2\u30fc", 
         power: null, 
         pp: 30, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1258,7 +1258,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: null, 
         pp: 30, 
         tm: 16, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1281,7 +1281,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: null, 
         pp: 20, 
         tm: 33, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1480,7 +1480,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30c9\u308f\u3059\u308c", 
         power: null, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 80, 
@@ -1491,7 +1491,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b9\u30d7\u30fc\u30f3\u307e\u3052", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1536,7 +1536,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: 100, 
         pp: 15, 
         tm: 85, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 90, 
@@ -1658,7 +1658,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b3\u30a6\u30a7\u30fc\u30d6", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -1737,7 +1737,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: null, 
         pp: 10, 
         tm: 44, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 90, 
@@ -2711,7 +2711,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30df\u30e9\u30fc\u30b3\u30fc\u30c8", 
         power: null, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -2768,7 +2768,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u307f\u3089\u3044\u3088\u3061", 
         power: 120, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -3028,7 +3028,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30c8\u30ea\u30c3\u30af", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3039,7 +3039,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u306a\u308a\u304d\u308a", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3094,7 +3094,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30de\u30b8\u30c3\u30af\u30b3\u30fc\u30c8", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3183,7 +3183,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b9\u30ad\u30eb\u30b9\u30ef\u30c3\u30d7", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3194,7 +3194,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3075\u3046\u3044\u3093", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3293,7 +3293,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30e9\u30b9\u30bf\u30fc\u30d1\u30fc\u30b8", 
         power: 70, 
         pp: 5, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -3304,7 +3304,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30df\u30b9\u30c8\u30dc\u30fc\u30eb", 
         power: 70, 
         pp: 5, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -3592,7 +3592,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b3\u30b9\u30e2\u30d1\u30ef\u30fc", 
         power: null, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -3636,7 +3636,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3058\u3093\u3064\u3046\u308a\u304d", 
         power: 80, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 90, 
@@ -3871,7 +3871,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: null, 
         pp: 20, 
         tm: 4, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -3948,7 +3948,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b3\u30d6\u30fc\u30b9\u30c8", 
         power: 140, 
         pp: 5, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3971,7 +3971,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3058\u3085\u3046\u308a\u3087\u304f", 
         power: null, 
         pp: 5, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -3982,7 +3982,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30df\u30e9\u30af\u30eb\u30a2\u30a4", 
         power: null, 
         pp: 40, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -4027,7 +4027,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3044\u3084\u3057\u306e\u306d\u304c\u3044", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -4185,7 +4185,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b3\u30b7\u30d5\u30c8", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -4207,7 +4207,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u304b\u3044\u3075\u304f\u3075\u3046\u3058", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -4229,7 +4229,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30d1\u30ef\u30fc\u30c8\u30ea\u30c3\u30af", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -4284,7 +4284,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30d1\u30ef\u30fc\u30b9\u30ef\u30c3\u30d7", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -4295,7 +4295,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30ac\u30fc\u30c9\u30b9\u30ef\u30c3\u30d7", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -4361,7 +4361,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30cf\u30fc\u30c8\u30b9\u30ef\u30c3\u30d7", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -4765,7 +4765,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b3\u30ab\u30c3\u30bf\u30fc", 
         power: 70, 
         pp: 20, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 90, 
@@ -4776,7 +4776,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3057\u306d\u3093\u306e\u305a\u3064\u304d", 
         power: 80, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 85, 
@@ -4833,7 +4833,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: null, 
         pp: 5, 
         tm: 92, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 90, 
@@ -5144,7 +5144,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u307f\u304b\u3065\u304d\u306e\u307e\u3044", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5244,7 +5244,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30ac\u30fc\u30c9\u30b7\u30a7\u30a2", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -5255,7 +5255,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30d1\u30ef\u30fc\u30b7\u30a7\u30a2", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -5266,7 +5266,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30ef\u30f3\u30c0\u30fc\u30eb\u30fc\u30e0", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5278,7 +5278,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: 80, 
         pp: 10, 
         tm: 3, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5323,7 +5323,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30c6\u30ec\u30ad\u30cd\u30b7\u30b9", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -5334,7 +5334,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30de\u30b8\u30c3\u30af\u30eb\u30fc\u30e0", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5413,7 +5413,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b7\u30f3\u30af\u30ed\u30ce\u30a4\u30ba", 
         power: 120, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5582,7 +5582,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30a2\u30b7\u30b9\u30c8\u30d1\u30ef\u30fc", 
         power: 20, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: null, 
@@ -5604,7 +5604,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30c9\u30c1\u30a7\u30f3\u30b8", 
         power: null, 
         pp: 15, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5638,7 +5638,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u3044\u3084\u3057\u306e\u306f\u3069\u3046", 
         power: null, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -5935,7 +5935,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30cf\u30fc\u30c8\u30b9\u30bf\u30f3\u30d7", 
         power: 60, 
         pp: 25, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 100, 
@@ -6034,7 +6034,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         jname: "\u30b5\u30a4\u30b3\u30d6\u30ec\u30a4\u30af", 
         power: 100, 
         pp: 10, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     }, 
     {
         accuracy: 85, 
@@ -6822,7 +6822,7 @@ export const POKEMONSKILLS: PokemonSkill[] = [
         power: 80, 
         pp: 5,
         maxpp: 8, 
-        type: "\u8d85\u80fd\u529b"
+        type: "\u8d85\u80fd"
     },
     {
         accuracy: 95, 
