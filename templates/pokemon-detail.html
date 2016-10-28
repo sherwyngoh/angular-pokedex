@@ -67,7 +67,7 @@
 <div class="button-row">
   <button (click)="pokemon = undefined; selectedSkill = undefined; faceFront = true" id="closeModal" [class.active]="pokemon">x</button>
   <button (click)="faceFront =  !faceFront" id="togglePokemonCard" [class.active]="pokemon">
-    <img src="assets/images/flip.svg" alt="">
+    <img src="assets/images/flip.svg">
   </button>
 </div>
 <div *ngIf="selectedSkill" id="selectedSkill" (click)="selectedSkill = undefined">
