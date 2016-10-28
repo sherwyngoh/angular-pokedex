@@ -65,7 +65,7 @@
 </div>
 
 <div class="button-row">
-  <button (click)="pokemon = undefined" id="closeModal" [class.active]="pokemon">x</button>
+  <button (click)="pokemon = undefined; selectedSkill = undefined; faceFront = true" id="closeModal" [class.active]="pokemon">x</button>
   <button (click)="faceFront =  !faceFront" id="togglePokemonCard" [class.active]="pokemon">
     <img src="assets/images/flip.svg" alt="">
   </button>
@@ -73,7 +73,6 @@
 <div *ngIf="selectedSkill" id="selectedSkill" (click)="selectedSkill = undefined">
   <div class="inner-container {{getType(selectedSkill)}}">
     <h5>#{{selectedSkill.id}}: {{selectedSkill.ename}}</h5>
-    <p *ngIf="selectedSkill.category" >Category: {{selectedSkill.category}}</p>
     <p *ngIf="selectedSkill.power" >Power: {{selectedSkill.power}}</p>
     <p *ngIf="selectedSkill.accuracy" >Accuracy: {{selectedSkill.accuracy}}</p>
     <p *ngIf="selectedSkill.pp" >PP: {{selectedSkill.pp}}</p>

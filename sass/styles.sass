@@ -309,18 +309,22 @@ header
   button
     border-radius: 0.8rem
     width: 9rem
+    height: 7rem
     opacity: 0
     background: darkslategrey
     color: white
-    font-size: 1.5rem
+    font-size: 2rem
     float: right
     margin: 0 1rem
+    transform: scale(1)
+    transition: transform 0.2s
     &.active
       opacity: 1
     &:hover, &:focus
+      transform: scale(1.1)
       color: white
     img
-      max-height: 90%
+      max-width: 90%
 
   @media all and (max-width: 600px)
     width: 100%

@@ -277,18 +277,22 @@ header {
   .button-row button {
     border-radius: 0.8rem;
     width: 9rem;
+    height: 7rem;
     opacity: 0;
     background: darkslategrey;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     float: right;
-    margin: 0 1rem; }
+    margin: 0 1rem;
+    transform: scale(1);
+    transition: transform 0.2s; }
     .button-row button.active {
       opacity: 1; }
     .button-row button:hover, .button-row button:focus {
+      transform: scale(1.1);
       color: white; }
     .button-row button img {
-      max-height: 90%; }
+      max-width: 90%; }
   @media all and (max-width: 600px) {
     .button-row {
       width: 100%;
