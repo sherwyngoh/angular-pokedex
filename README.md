@@ -1,5 +1,5 @@
 #### Stack
-* Angular 2 ( or Angular, acutally.)
+* Angular 2 ( or Angular.io, actually.)
 * Typescript 2.0.3
 * Skeleton css
 * SASS
